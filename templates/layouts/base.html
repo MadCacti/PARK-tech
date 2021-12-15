@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -20,9 +21,8 @@
     <link rel="shortcut icon" href="/static/assets/title.png">
 
 </head>
-<body class="baseNav">
+<body class="baseNav" style="background-color: red">
 <!--adds background image-->
-
 
 <nav class="navbar navbar-expand-lg navbar-custom ">
     <ul style="padding-left: 45px" class="nav navbar-nav">
@@ -70,9 +70,30 @@
     </ul>
 </nav>
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            Fiction
+        </div>
+        <div class="col-sm">
+            Non-Fiction
+        </div>
+        <div class="col-sm">
+            Auto/Biography
+        </div>
+        <div class="col-sm">
+            Fantasy
+        </div>
+        <div class="col-sm">
+            Picture Books
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid content">
     {% block content %}{% endblock %}
 </div>
 </body>
 </html>
+{% extends "layouts/nav.html" %}
