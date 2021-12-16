@@ -1,7 +1,7 @@
 # import "packages" from flask
 import json
 
-# import app as app
+import app as app
 from flask import Flask, render_template, request
 from newsapi.newsapi_client import NewsApiClient
 import requests
@@ -109,13 +109,9 @@ def search():
 def database1():
     return render_template("Databases/database1.html")
 
-@app.route('/nav/')
-def nav():
-    return render_template("layouts/nav.html")
-
-@app.route('/oo/')
-def oo():
-    return render_template("dist/401.html")
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        debug=True,
+        host="0.0.0.0",
+        port=5000
+    ),
