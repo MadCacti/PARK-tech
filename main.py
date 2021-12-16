@@ -108,6 +108,10 @@ def search():
 def database1():
     return render_template("Databases/database1.html")
 
+@app.route('/moreinfo/')
+def moreinfo():
+    return render_template("moreinfo.html")
+
 
 @app.route('/login/', methods=["GET", "POST"])
 def login():
