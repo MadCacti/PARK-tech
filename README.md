@@ -1,3 +1,5 @@
+Example Login: test@test.com
+               Password123!
 Table of contents
 =================
 
