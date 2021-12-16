@@ -1,12 +1,12 @@
 # import "packages" from flask
-import json
-
-import app as app
 from flask import Flask, render_template, request
 from newsapi.newsapi_client import NewsApiClient
-import requests
-# from crud.app_crud import crud.app_crud
-#app.register_blueprint(app_crud)
+import requests, json
+import firebase_admin
+from firebase_admin import credentials
+from __init__ import app
+from mortencrud.app_crud import app_crud
+app.register_blueprint(app_crud)
 
 # create a Flask instance
 app = Flask(__name__)
@@ -35,7 +35,7 @@ def get_results():
                                      # category='business', #optional and you can change also
                                      language='en',  # optional and you can change also
                                      country='in')
-    print(news['articles'])
+    # print(news['articles'])
     return render_template('profiles/raiden.html', news=news['articles'])
 
 @app.route('/paul/')
@@ -46,7 +46,6 @@ def paul():
 @app.route('/armaan/')
 def armaan():
     return render_template("profiles/armaan.html")
-
 
 
 @app.route('/API/')
@@ -109,9 +108,21 @@ def search():
 def database1():
     return render_template("Databases/database1.html")
 
+
+@app.route('/login/', methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
+
+
+@app.route('/register/')
+def register():
+    return render_template("register.html")
+
+
+@app.route('/error/')
+def error():
+    return render_template("error.html")
+
+
 if __name__ == "__main__":
-    app.run(
-        debug=True,
-        host="0.0.0.0",
-        port=5000
-    ),
+    app.run(debug=True)
