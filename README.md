@@ -1,12 +1,9 @@
-Example Login: test@test.com <br>
-
-               Password123!
 Table of contents
 =================
 
 <!--ts-->
 * [Credits](#credits)
-* [Runtime Link(when done)](#runtime)
+* [Runtime Link](#runtime)
 * [Week 0](#Week-0)
 * [Week 1](#Week-1)
 * [Week 2](#Week-2)
@@ -35,6 +32,9 @@ Runtime
 https://parktech.tk
 
 Backup link(stays week behind: https://parktech.cf
+
+Example Login: test@test.com 
+Example Password: Password123!
 
 Week-0
 ===============
