@@ -32,8 +32,9 @@ Kurtis Kwan | [@Naevey](https://github.com/Naevey) | [Tasks](https://github.com/
 
 Runtime
 =================
-http://parktech.cf
+https://parktech.tk
 
+Backup link(stays week behind: https://parktech.cf
 
 Week-0
 ===============
