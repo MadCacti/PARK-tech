@@ -1,12 +1,9 @@
-Example Login: test@test.com <br>
-
-               Password123!
 Table of contents
 =================
 
 <!--ts-->
 * [Credits](#credits)
-* [Runtime Link(when done)](#runtime)
+* [Runtime Link](#runtime)
 * [Week 0](#Week-0)
 * [Week 1](#Week-1)
 * [Week 2](#Week-2)
@@ -32,8 +29,11 @@ Kurtis Kwan | [@Naevey](https://github.com/Naevey) | [Tasks](https://github.com/
 
 Runtime
 =================
-http://parktech.cf
+Main Runtime: https://parktech.tk
+Backup link: https://parktech.cf
 
+Example Login: test@test.com 
+Example Password: Password123!
 
 Week-0
 ===============
@@ -68,6 +68,8 @@ Completion of about me pages | All members | Focus on completing this week's goa
 
 Focus on deployment with group and management of getting accustomed to commits/pushes to live runtime.
 
+Note: Over the weekend, Paul added the Park-tech button to display info.
+
 Week-3
 ===============
 [Week 3 Issue](https://github.com/MadCacti/PARK-tech/issues/12)
@@ -78,3 +80,5 @@ Commit | Person | Description
 [Finalize Cursor](https://github.com/MadCacti/PARK-tech/commits/main?author=Paul-D6) | Kurtis | Finished finalizing a design for the cursor while group gets used to implementing/using databases.
 [Databases](https://github.com/MadCacti/PARK-tech/commit/7fbcc86efb7ca53b5f56518a7864b5c280b81dbb)| Kurtis | Add the databases, can be used in near future, but need to discuss w/ team.
 [1 Minute Video](https://www.youtube.com/watch?v=QrnjChhsUpQ) | Raiden & Kurtis | on Asynchronous Data Access, current PBL highlights, and plans when returning from Winter Break. Apologies about the watermark, using a different software next time.
+[NAV.html](https://github.com/MadCacti/PARK-tech/blob/main/templates/layouts/nav.html) | Armaan | For bootstrap/front end features, adds a way to quicksearch filters
+[Game](https://github.com/MadCacti/PARK-tech/commit/f18864e2ecdd8dc218a5c1508e1d88ad02c771bd) | Paul | Added a game for people bored as a fun way to simply pass time or for taking a break after trying to look for books or read
