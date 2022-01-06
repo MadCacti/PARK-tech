@@ -1,5 +1,4 @@
-@import 'static/css/lightMode';
-@import 'static/css/darkMode';
+
 
 themes: (
         "light": (
@@ -38,7 +37,7 @@ themes: (
   $shades: map-get($theme-vars, "shades");
   $colors: map-get($theme-vars, "colors");
 
-  theme1: (
+  $theme: (
           "bg-color": map-get($shades, "shade-1"),
           "border-color": map-get($shades, "shade-2"),
           "border-focus-color": map-get($shades, "shade-3"),
@@ -61,7 +60,7 @@ themes: (
     }
 
     // define a css variable for each theme color
-    @each $name, $color; in theme {
+    @each $name, $color in $theme {
       --#{$name}: #{$color};
     }
   }
@@ -119,4 +118,3 @@ body {
   align-items: center;
   height: 100vh;
 }
-

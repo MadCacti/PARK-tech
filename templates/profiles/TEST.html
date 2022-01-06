@@ -1,15 +1,36 @@
 
-
+<h2 style="text-align: center">
+TEST PAGE!!</h2>
 
 <div class="app dark">
-    <h1 class="title">Light/Dark theme switcher</h1>
-    <p class="text">Use the button below to switch between light and dark themes</p>
-    <p class="current-theme">Current theme: <span class="theme-name">dark</span></p>
-    <h2>Dynamic Colors:</h2>
-    <p>
+    <h1 class="title">Light/Dark Mode switcher</h1>
+    <p class="text">Use the button below to switch between light and dark modes!!!</p>
+    <p class="current-theme">Current Mode: <span class="theme-name">dark</span></p>
+    <h2>Colors:</h2>
+   <!-- <p>
         <span class="primary">Base Color</span><br/>
         <span class="primary-dark">10% darker Color</span><br/>
         <span class="primary-darker">20% darker Color</span><br/>
-    </p>
+    </p> -->
     <button type="button" class="btn btn-switch">Switch</button>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const app        = document.querySelector(".app");
+        const themeName  = document.querySelector(".theme-name");
+        const button     = document.querySelector(".btn-switch");
+        let currentTheme = app.classList.contains("light") ? "light" : "dark";
+
+        button.addEventListener("click", function() {
+            app.classList.remove(currentTheme);
+            currentTheme = currentTheme === "light" ? "dark" : "light";
+            app.classList.add(currentTheme);
+
+            themeName.innerText = currentTheme;
+        });
+    });
+
+</script>
+
+
