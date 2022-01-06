@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, request, url_for, redirect, jsonif
 from flask_restful import Api, Resource
 import requests
 
-from crud.model import Users
+from templates.crud.model import Users
 
 # blueprint defaults https://flask.palletsprojects.com/en/2.0.x/api/#blueprint-objects
 app_crud = Blueprint('crud', __name__,
@@ -69,7 +69,7 @@ def create():
             request.form.get("name"),
             request.form.get("email"),
             request.form.get("password"),
-            request.form.get("team")
+            request.form.get("phone")
         )
         po.create()
     return redirect(url_for('crud.crud'))
@@ -136,8 +136,8 @@ def search_term():
 class UsersAPI:
     # class for create/post
     class _Create(Resource):
-        def post(self, name, email, password, team):
-            po = Users(name, email, password, team)
+        def post(self, name, email, password, phone):
+            po = Users(name, email, password, phone)
             person = po.create()
             if person:
                 return person.read()
@@ -163,11 +163,11 @@ class UsersAPI:
             return po.read()
 
     class _UpdateAll(Resource):
-        def put(self, email, name, password, team):
+        def put(self, email, name, password, phone):
             po = user_by_email(email)
             if po is None:
                 return {'message': f"{email} is not found"}, 210
-            po.update(name, password, team)
+            po.update(name, password, phone)
             return po.read()
 
     # class for delete
@@ -181,11 +181,11 @@ class UsersAPI:
             return data
 
     # building RESTapi resource
-    api.add_resource(_Create, '/create/<string:name>/<string:email>/<string:password>/<string:team>')
+    api.add_resource(_Create, '/create/<string:name>/<string:email>/<string:password>/<string:phone>')
     api.add_resource(_Read, '/read/')
     api.add_resource(_ReadILike, '/read/ilike/<string:term>')
     api.add_resource(_Update, '/update/<string:email>/<string:name>')
-    api.add_resource(_UpdateAll, '/update/<string:email>/<string:name>/<string:password>/<string:team>')
+    api.add_resource(_UpdateAll, '/update/<string:email>/<string:name>/<string:password>/<string:phone>')
     api.add_resource(_Delete, '/delete/<int:userid>')
 
 

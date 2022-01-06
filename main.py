@@ -1,10 +1,8 @@
 # import "packages" from flask
 from flask import Flask, render_template, request
 from newsapi.newsapi_client import NewsApiClient
-from crud.app_crud import app_crud
+from templates.crud.app_crud import app_crud
 import requests, json
-import firebase_admin
-from firebase_admin import credentials
 from __init__ import app
 app.register_blueprint(app_crud)
 
@@ -144,8 +142,7 @@ def error():
 
 @app.route('/crud')
 def crud():
-    """obtains all Users from table and loads Admin Form"""
-    return render_template("/crud/templates/crud/crud.html", table=users_all())
+    return render_template("crud/templates/crud/crud.html")
 
 
 if __name__ == "__main__":
