@@ -30,7 +30,7 @@ Kurtis Kwan | [@Naevey](https://github.com/Naevey) | [Tasks](https://github.com/
 Runtime
 =================
 Main Runtime: https://parktech.tk
-Backup link: https://parktech.cf
+Backup link: https://parktech.cf (currently down due to some personal maintenance)
 
 Example Login: test@test.com 
 Example Password: Password123!
