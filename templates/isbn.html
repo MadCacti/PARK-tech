@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript">
+        google.books.load();
+
+        function initialize() {
+            var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+            var isbn = document.getElementById('isbninput').value;
+            viewer.load('ISBN:' + isbn);
+        }
+
+        google.books.setOnLoadCallback(initialize);
+    </script>
+</head>
+<h4>Please note that not all ISBN's may work.</h4>
+<input placeholder="enter ISBN here" id="isbninput">
+<button type="button" onclick="initialize()">Find</button>
+<div id="viewerCanvas" style="width: 900px; height: 700px"></div>
+</body>
+</html>
+{% endblock %}
