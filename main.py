@@ -1,11 +1,9 @@
 # import "packages" from flask
 from flask import Flask, render_template, request
 from newsapi.newsapi_client import NewsApiClient
+from templates.crud.app_crud import app_crud
 import requests, json
-import firebase_admin
-from firebase_admin import credentials
 from __init__ import app
-from mortencrud.app_crud import app_crud
 app.register_blueprint(app_crud)
 
 # create a Flask instance
@@ -73,6 +71,11 @@ def rating_test():
     return render_template("ratings/rating_test.html")
 
 
+@app.route('/overlaytest/')
+def overlaytest():
+    return render_template("ratings/overlaytest.html")
+
+
 @app.route('/five_stars/')
 def five_stars():
     return render_template("ratings/five_stars.html")
@@ -97,16 +100,30 @@ def two_stars():
 def one_star():
     return render_template("ratings/one_star.html")
 
+
 @app.route('/databases/')
 def databases():
     return render_template("Databases/databases.html")
+
+
 @app.route('/search/')
 def search():
     return render_template("search.html")
 
+
 @app.route('/database1/')
 def database1():
     return render_template("Databases/database1.html")
+
+
+@app.route('/moreinfo/')
+def moreinfo():
+    return render_template("moreinfo.html")
+
+
+@app.route('/isbn/')
+def isbn():
+    return render_template("isbn.html")
 
 
 @app.route('/login/', methods=["GET", "POST"])
@@ -122,6 +139,10 @@ def register():
 @app.route('/error/')
 def error():
     return render_template("error.html")
+
+@app.route('/crud')
+def crud():
+    return render_template("crud/templates/crud/crud.html")
 
 
 
