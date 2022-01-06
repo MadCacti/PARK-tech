@@ -127,6 +127,17 @@ def register():
 def error():
     return render_template("error.html")
 
+# @app.route("/")
+# def index():
+#     listings = mongo.db.listings.find_one()
+#     return render_template("index.html", listings=listings)
+
+#
+# @app.route("/scrape")
+# def scraper():
+#     listings_data = #name.scrape()
+#     listings.update({}, listings_data, upsert=True)
+#     return redirect("/", code=302)
 
 if __name__ == "__main__":
     app.run(
