@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,10 +26,10 @@
         const auth = firebase.auth();
         auth.onAuthStateChanged(function(user) {
 
-       //     if (user) {
-       //     } else {
-        //        window.location.pathname = "/login";
-        //    }
+            if (user) {
+           } else {
+     //          window.location.pathname = "/login"; comment out to avoid it from shutting the user out
+           }
 
         });
         function logout() {
@@ -50,8 +49,7 @@
     <link rel="shortcut icon" href="/static/assets/title.png">
 
 </head>
-<body class="baseNav">
-<!--adds background image-->
+
 
 
 <nav class="navbar navbar-expand-lg navbar-custom ">
@@ -71,6 +69,10 @@
                     <a class="dropdown-item" href={{ url_for('armaan') }}>Armaan</a>
                     <a class="dropdown-item" href={{ url_for('raiden') }}>Raiden</a>
                     <a class="dropdown-item" href={{ url_for('kurtis') }}>Kurtis</a>
+<!--                <li><a class="dropdown-item" href={{ url_for('crud') }}>SQL CRUD</a></li>-->
+<!--                <li><a class="dropdown-item" href={{ url_for('~/crud.search') }}>SQL Search</a></li>-->
+
+
                 </li>
             </ul>
         </li>
@@ -95,12 +97,63 @@
             <a style="font-size: 20px" class="nav-link" href={{ url_for('rating_test') }}>Ratings</a>
         </li>
         <li class="nav-item">
-            <a style="font-size: 20px" class="nav-link" href={{ url_for('index') }}>More Info</a>
+            <a style="font-size: 20px" class="nav-link" href={{ url_for('moreinfo') }}>More Info</a>
         </li>
     </ul>
 </nav>
+<!--<body class="baseNav" style="background-color: red">-->
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Fiction</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">Non-Fiction</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">Auto/Biography</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4">
+            <div class="card-body">Picture Books</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-
+<!--<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>-->
+</div>
 <div class="container-fluid content">
     {% block content %}{% endblock %}
 </div>

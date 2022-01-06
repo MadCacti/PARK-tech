@@ -1,11 +1,11 @@
 # import "packages" from flask
 from flask import Flask, render_template, request
 from newsapi.newsapi_client import NewsApiClient
+from crud.app_crud import app_crud
 import requests, json
 import firebase_admin
 from firebase_admin import credentials
 from __init__ import app
-from mortencrud.app_crud import app_crud
 app.register_blueprint(app_crud)
 
 # create a Flask instance
@@ -113,6 +113,10 @@ def search():
 def database1():
     return render_template("Databases/database1.html")
 
+@app.route('/moreinfo/')
+def moreinfo():
+    return render_template("moreinfo.html")
+
 
 @app.route('/login/', methods=["GET", "POST"])
 def login():
@@ -128,6 +132,15 @@ def register():
 def error():
     return render_template("error.html")
 
+@app.route('/crud')
+def crud():
+    """obtains all Users from table and loads Admin Form"""
+    return render_template("/crud/templates/crud/crud.html", table=users_all())
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        debug=True,
+       # host="0.0.0.0",
+       # port=5000
+    ),
