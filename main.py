@@ -102,20 +102,30 @@ def two_stars():
 def one_star():
     return render_template("ratings/one_star.html")
 
+
 @app.route('/databases/')
 def databases():
     return render_template("Databases/databases.html")
+
+
 @app.route('/search/')
 def search():
     return render_template("search.html")
+
 
 @app.route('/database1/')
 def database1():
     return render_template("Databases/database1.html")
 
+
 @app.route('/moreinfo/')
 def moreinfo():
     return render_template("moreinfo.html")
+
+
+@app.route('/isbn/')
+def isbn():
+    return render_template("isbn.html")
 
 
 @app.route('/login/', methods=["GET", "POST"])
