@@ -73,6 +73,11 @@ def rating_test():
     return render_template("ratings/rating_test.html")
 
 
+@app.route('/overlaytest/')
+def overlaytest():
+    return render_template("ratings/overlaytest.html")
+
+
 @app.route('/five_stars/')
 def five_stars():
     return render_template("ratings/five_stars.html")
