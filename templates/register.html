@@ -77,11 +77,11 @@
             const email = form["email"].value;
             const password = form["password"].value;
             auth.createUserWithEmailAndPassword(email, password).then(function (){
-                console.log('signed up successfully')
+                console.log('signed uppathname successfully')
                 window.location.pathname = '/login'
             }).catch((err) => {
                 if (err.code === "auth/email-already-in-use") {
-                    window.location.pathname = "/error/"
+                    window.location. = "/error/"
                 }
                 if (err.code === "auth/weak-password") {
                     window.location.pathname = "/error/"
