@@ -5,8 +5,8 @@ import requests, json
 import firebase_admin
 from firebase_admin import credentials
 from __init__ import app
-from mortencrud.app_crud import app_crud
-app.register_blueprint(app_crud)
+# from mortencrud.app_crud import app_crud
+# app.register_blueprint(app_crud)
 
 # create a Flask instance
 app = Flask(__name__)
