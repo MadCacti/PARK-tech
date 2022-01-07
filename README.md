@@ -89,7 +89,7 @@ Week-4
 
 Commit | Person | Description
 ------ | ------ | -----------
-[ISBN Search](https://github.com/MadCacti/PARK-tech/commit/37477783b7ce6dfaa54225e8cd6876fa496e9a8b) | Raiden | Add ISBN searcher using Google Books to display a preview of an entered ISBN of a book.
+[ISBN Search/Rating extension(WIP)](https://github.com/MadCacti/PARK-tech/commit/37477783b7ce6dfaa54225e8cd6876fa496e9a8b) | Raiden | Add ISBN searcher using Google Books to display a preview of an entered ISBN of a book. Also playing around and researching with jinja blocks on how to extend the ratings properly, though it currently is a bit iffy. Will/should be finalized by next week w/ Paul.
 [Dark/Light Modes (WIP)](https://github.com/MadCacti/PARK-tech/commit/33edb419630408f330d44cee856d5fdab5efbc36) | Armaan | Working on a Dark mode for contrast compared to the currently white navbar.
 [Database fixing](https://github.com/MadCacti/PARK-tech/commit/bc24214edbbb1f1dcad573cc51308f2d461daf81)| Kurtis | Fix some issues with the databases that prevent it from operating properly.
 
