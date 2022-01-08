@@ -1,8 +1,8 @@
 .content {
   padding: 32px;
-  @include theme() {
-    color: theme-get('text-color');
-    background-color: theme-get('bg-color');
+  @include $theme() {
+    color: $theme-get('text-color');
+    background-color: $theme-get('bg-color');
   }
 }
 

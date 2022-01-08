@@ -48,9 +48,9 @@ def armaan():
     return render_template("profiles/armaan.html")
 
 
-@app.route('/API/')
-def API():
-    return render_template("profiles/API.html")
+@app.route('/TEST/')
+def TEST():
+    return render_template("profiles/TEST.html")
 
 
 @app.route('/kurtis/')
