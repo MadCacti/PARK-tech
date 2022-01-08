@@ -1,19 +1,21 @@
 # import "packages" from flask
+import json
+
+import app as app
+import requests
 from flask import Flask, render_template, request
-from newsapi.newsapi_client import NewsApiClient
-import requests, json
-import firebase_admin
-from firebase_admin import credentials
 from __init__ import app
-# from mortencrud.app_crud import app_crud
-# app.register_blueprint(app_crud)
+from newsapi.newsapi_client import NewsApiClient
+
+from templates.crud.app_crud import app_crud
+
+app.register_blueprint(app_crud)
 
 # create a Flask instance
 app = Flask(__name__)
 
 yourAPIKEY = '8169dc4f99474483ab5999bc2c761381'  # write your API key here
 newsapi = NewsApiClient(api_key=yourAPIKEY)
-
 
 # connects default URL to render index.html
 @app.route('/')
@@ -97,16 +99,26 @@ def two_stars():
 def one_star():
     return render_template("ratings/one_star.html")
 
+
 @app.route('/databases/')
 def databases():
     return render_template("Databases/databases.html")
+
+
 @app.route('/search/')
 def search():
     return render_template("search.html")
 
+
+@app.route('/isbn/')
+def isbn():
+    return render_template("isbn.html")
+
+
 @app.route('/database1/')
 def database1():
     return render_template("Databases/database1.html")
+
 
 @app.route('/moreinfo/')
 def moreinfo():
@@ -127,6 +139,10 @@ def register():
 def error():
     return render_template("error.html")
 
+# @app.route('/crud')
+# def crud():
+#     """obtains all Users from table and loads Admin Form"""
+#     return render_template("crud/templates/crud/crud.html")
 
 if __name__ == "__main__":
     app.run(
