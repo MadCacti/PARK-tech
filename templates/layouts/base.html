@@ -1,4 +1,8 @@
+
 <html>
+
+
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,20 +62,33 @@
             <a style="font-size: 20px" class="nav-link" href={{ url_for('index') }}>  Home  </a>
         </li>
     </ul>
+
+    <ul style="padding-left: 40px" class="nav navbar-nav mr-auto">
+        <li class="nav-item navbar-text">
+        <li class="nav-item dropdown navbar-text" id="homeBody">
+        <li class="nav-item">
+            <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Databases</a>
+            <ul style="margin-left: 10em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a class="dropdown-item" href={{ url_for('databases') }}>Find by Book</a>
+                    <a class="dropdown-item" href={{ url_for('database1') }}>Find by Type</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
     <ul style="padding-left: 40px" class="nav navbar-nav mr-auto">
         <li class="nav-item navbar-text">
         <li class="nav-item dropdown navbar-text" id="homeBody">
         <li class="nav-item">
             <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">About Us</a>
-            <ul style="margin-left: 10em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul style="margin-left: 20em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
                     <a class="dropdown-item" href={{ url_for('paul') }}>Paul</a>
                     <a class="dropdown-item" href={{ url_for('armaan') }}>Armaan</a>
                     <a class="dropdown-item" href={{ url_for('raiden') }}>Raiden</a>
                     <a class="dropdown-item" href={{ url_for('kurtis') }}>Kurtis</a>
                     <!--   (giving endpoint errors - should be url for crud)             <a class="dropdown-item" href={{ url_for('error') }}>SQL CRUD</a></li>-->
-
-
                 </li>
 
             </ul>
@@ -80,19 +97,7 @@
         <li style="padding-right: 15px" class="nav-item">
             <a style="font-size: 20px" class="nav-link" href={{ url_for('search') }}>Book Ratings</a>
         </li>
-        <ul style="padding-left: 40px" class="nav navbar-nav mr-auto">
-            <li class="nav-item navbar-text">
-            <li class="nav-item dropdown navbar-text" id="homeBody">
-            <li class="nav-item">
-                <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Databases</a>
-                <ul style="margin-left: 10em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li>
-                        <a class="dropdown-item" href={{ url_for('databases') }}>Find by Book</a>
-                        <a class="dropdown-item" href={{ url_for('database1') }}>Find by Type</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+
         <li style="padding-right: 40px; padding-left: 43px" class="nav-item">
             <a style="font-size: 20px" class="nav-link" href={{ url_for('rating_test') }}>Ratings</a>
         </li>
@@ -107,34 +112,34 @@
         <div class="card bg-primary text-white mb-4">
             <div class="card-body">Fiction</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Database</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
         <div class="card bg-warning text-white mb-4">
-            <div class="card-body">Non-Fiction</div>
+            <div class="card-body">Picture</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Database</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
         <div class="card bg-success text-white mb-4">
-            <div class="card-body">Auto/Biography</div>
+            <div class="card-body">Non-Fiction</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Database</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-md-6">
         <div class="card bg-danger text-white mb-4">
-            <div class="card-body">Picture Books</div>
+            <div class="card-body">Auto/Biography</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Details</a>
+                <a class="small text-white stretched-link" href={{ url_for('databases') }}>View Database</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
         </div>
@@ -153,9 +158,11 @@
         </div>
     </div>
 </footer>-->
+
 </div>
 <div class="container-fluid content">
     {% block content %}{% endblock %}
 </div>
 </body>
+
 </html>

@@ -1,32 +1,137 @@
-<style>
-@import 'static/css/TEST1.scss';
 
-</style>
+    <link rel="stylesheet" href="static/css/Mode.css">
+    <style>
+        /* light mode */
+        /* selects the original element of the html document */
+        :root {
+            --color-page-background: rgba(0, 0, 0, 0.15);
+            --color-text: black;
+            --color-border: black;
+        }
 
-<body>
-<h2 style="text-align: center">
-TEST PAGE!!</h2>
+        /* dark mode */
+        .dark {
+            --color-page-background: black;
+            --color-text: white;
+            --color-border: white;
+        }
 
-<div class="app dark">
-    <h1 class="title">Light/Dark Mode switcher</h1>
-    <p class="text">Use the button below to switch between light and dark modes!!!</p>
-    <p class="current-theme">Current Mode: <span class="theme-name">Dark</span></p>
-    <h2>Colors:</h2>
-   <!-- <p>
-        <span class="primary">Base Color</span><br/>
-        <span class="primary-dark">10% darker Color</span><br/>
-        <span class="primary-darker">20% darker Color</span><br/>
-    </p> -->
-    <button type="button" class="btn btn-switch">Change</button>
-    <label class="switch">
-        <!--<input type="checkbox">-->
-        <span class="slider round"></span>
-    </label>
-    <link rel="mode" href="TEST1.scss">
+        body {
+            background-color: var(--color-page-background);
+            color: var(--color-text);
+        }
+
+        .switch {
+            position: fixed;
+            background-color: var(--color-black);
+            border: 0px solid var(--color-text);
+            color: var(--color-text);
+            text-align: center;
+        }
+        /*# sourceMappingURL=Mode.css.map */
+    </style>
 
 </div>
 
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Dosis:400,600'>
+</head>
 
+<button class="switch" type="checkbox" style="color: darkgreen" id="darklight" onclick="dark()" data-switch-dark>
+    LIGHT
+</button>
+    <label class="switch" >
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+    </label><br><br>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #000000;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 30px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+
+
+<body>
+
+
+
+<script>
+    function dark() {
+        var x = document.getElementById("darklight");
+        if (x.innerHTML === "LIGHT") {
+            x.innerHTML = "DARK";
+        } else {
+            x.innerHTML = "LIGHT";
+        }
+    }
+    // Switch Text from Light --> Dark when clicked to match the style
+
+    document.querySelector('[data-switch-dark]').addEventListener('click', function() {
+        document.body.classList.toggle('DARK');
+    });
+    // matches page with darkmode css onclick
+</script>
+
+
+</body>
 
 </body>
 
@@ -91,8 +196,10 @@ setInterval(clock, 1000);
 
 </script>
 
-<div class="row justify-content-center" style="margin: 2%;">
-    <iframe height="1000px" width="1000px" src="https://replit.com/@ArmaanShamsaase/Algorithm?lite=true"></iframe>
-</div>
+    <!--
+    <div class="row justify-content-center" style="margin: 2%;">
+        <iframe height="1000px" width="1000px" src="https://replit.com/@ArmaanShamsaase/Algorithm?lite=true"></iframe>
+    </div>
+    -->
 
 
