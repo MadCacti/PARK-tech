@@ -138,7 +138,9 @@ def register():
 @app.route('/error/')
 def error():
     return render_template("error.html")
-
+@app.route('/random')
+def random():
+    return render_template("randombook.html")
 # @app.route('/crud')
 # def crud():
 #     """obtains all Users from table and loads Admin Form"""
