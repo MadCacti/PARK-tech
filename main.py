@@ -66,38 +66,146 @@ def kurtis():
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
     output = json.loads(response.text)
+    print(output)
     return render_template("profiles/kurtis.html", question=output)
 # runs the application on the development server
+fivestars_list = []
+fourstars_list = []
+threestars_list = []
+twostars_list = []
+onestar_list = []
+
+
+# def averagecalc():
+#    average = 0
+#    total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+#    sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+#    if total != 0:
+#        average = sum / total
 
 
 @app.route('/rating_test/')
 def rating_test():
-    return render_template("ratings/rating_test.html")
+    total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+    sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+    if total != 0:
+        average = sum / total
+    else:
+        average = 0
+    return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
 
 
-@app.route('/five_stars/')
-def five_stars():
-    return render_template("ratings/five_stars.html")
+@app.route('/fivestars', methods=['GET', 'POST'])
+def fivestars():
+    total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+    sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+    if total != 0:
+        average = sum / total
+    else:
+        average = 0
+    if request.form:
+        review = request.form.get("review")
+        if len(review) != 0:
+            fivestars_list.append(review)
+            total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+            sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+            if total != 0:
+                average = sum / total
+            else:
+                average = 0
+            return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
+    return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
 
 
-@app.route('/four_stars/')
-def four_stars():
-    return render_template("ratings/four_stars.html")
+@app.route('/fourstars', methods=['GET', 'POST'])
+def fourstars():
+    total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+    sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+    if total != 0:
+        average = sum / total
+    else:
+        average = 0
+    if request.form:
+        review = request.form.get("review")
+        if len(review) != 0:
+            fourstars_list.append(review)
+            total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+            sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+            if total != 0:
+                average = sum / total
+            else:
+                average = 0
+            return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
+    return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
 
 
-@app.route('/three_stars/')
-def three_stars():
-    return render_template("ratings/three_stars.html")
+@app.route('/threestars', methods=['GET', 'POST'])
+def threestars():
+    total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+    sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+    if total != 0:
+        average = sum / total
+    else:
+        average = 0
+    if request.form:
+        review = request.form.get("review")
+        if len(review) != 0:
+            threestars_list.append(review)
+            total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+            sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+            if total != 0:
+                average = sum / total
+            else:
+                average = 0
+            return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
+    return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
 
 
-@app.route('/two_stars/')
-def two_stars():
-    return render_template("ratings/two_stars.html")
+@app.route('/twostars', methods=['GET', 'POST'])
+def twostars():
+    total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+    sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+    if total != 0:
+        average = sum / total
+    else:
+        average = 0
+    if request.form:
+        review = request.form.get("review")
+        if len(review) != 0:
+            twostars_list.append(review)
+            total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+            sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+            if total != 0:
+                average = sum / total
+            else:
+                average = 0
+            return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
+    return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
 
 
-@app.route('/one_star/')
-def one_star():
-    return render_template("ratings/one_star.html")
+@app.route('/onestar', methods=['GET', 'POST'])
+def onestar():
+    total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+    sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+    if total != 0:
+        average = sum / total
+    else:
+        average = 0
+    if request.form:
+        review = request.form.get("review")
+        if len(review) != 0:
+            onestar_list.append(review)
+            total = len(onestar_list) + len(twostars_list) + len(threestars_list) + len(fourstars_list) + len(fivestars_list)
+            sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
+            if total != 0:
+                average = sum / total
+            else:
+                average = 0
+            return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
+    return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
+
+
+
 
 
 @app.route('/databases/')
@@ -135,10 +243,13 @@ def register():
     return render_template("register.html")
 
 
+
 @app.route('/error/')
 def error():
     return render_template("error.html")
-
+@app.route('/random')
+def random():
+    return render_template("randombook.html")
 # @app.route('/crud')
 # def crud():
 #     """obtains all Users from table and loads Admin Form"""

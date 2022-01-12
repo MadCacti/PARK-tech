@@ -1,6 +1,122 @@
 {% extends "layouts/base.html" %}
 {% block content %}
 
+
+    <style>
+        .star-rating1 {
+            display: flex;
+            align-items: center;
+            width: 160px;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            margin: 40px auto;
+            position: relative;
+        }
+        /* hide the inputs */
+        .star-rating1 input {
+            display: none;
+        }
+        /* set properties of all labels */
+        .star-rating1 > label {
+            width: 30px;
+            height: 30px;
+            font-family: Arial;
+            font-size: 30px;
+            transition: 0.2s ease;
+            color: orange;
+        }
+        /* give label a hover state */
+        .star-rating1 label:hover {
+            color: orange;
+            transition: 0.2s ease;
+        }
+        .star-rating1 label:active::before {
+            transform:scale(1.1);
+        }
+
+        /* set shape of unselected label */
+        .star-rating1 label::before {
+            content: '\2606';
+            position: absolute;
+            top: 0px;
+            line-height: 26px;
+        }
+        /* set full star shape for checked label and those that come after it */
+        .star-rating1 input:checked ~ label:before {
+            content:'\2605';
+        }
+
+        @-moz-document url-prefix() {
+            .star-rating1 input:checked ~ label:before {
+                font-size: 36px;
+                line-height: 21px;
+            }
+        }
+    </style>
+    <h2>Rate the book!</h2>
+    <form action= id="publish" method="POST" >
+        <label for="review">Find Book</label>
+        <input name="search" id="search">
+        <input type="submit" value="Submit">
+    </form>
+    <div class="row">
+        <div class="star-rating1">
+            <input type="radio" name="stars" id="star-a1" value="5"/>
+            <label for="star-a1"></label>
+
+            <input type="radio" name="stars" id="star-b1" value="4"/>
+            <label for="star-b1"></label>
+
+            <input type="radio" name="stars" id="star-c1" value="3"/>
+            <label for="star-c1"></label>
+
+            <input type="radio" name="stars" id="star-d1" value="2"/>
+            <label for="star-d1"></label>
+
+            <input type="radio" name="stars" id="star-e1" value="1"/>
+            <label for="star-e1"></label>
+        </div>
+    </div>
+
+    <br>
+
+    <button type="button" onclick="displayRadioValue()">
+        Add Rating
+    </button>
+
+    <br>
+    <p>You chose:</p>
+    <div id="result"></div>
+
+
+    <script>
+        function displayRadioValue() {
+            var ele = document.getElementsByName('stars');
+
+            for(i = 0; i < ele.length; i++) {
+                if(ele[i].checked)
+                    document.getElementById("result").innerHTML
+                        = ele[i].value;
+            }
+            const resultA = document.getElementById("result").innerHTML;
+            {#alert ("Thank you for your feed back!");#}
+            if (resultA === "1") {
+                document.getElementById('form1').style.display = '';
+            }
+            else if (resultA ===  "2"){
+                document.getElementById('form2').style.display = '';
+            }
+            else if (resultA ===  "3"){
+                document.getElementById('form3').style.display = '';
+            }
+            else if (resultA ===  "4"){
+                document.getElementById('form4').style.display = '';
+            }
+            else if (resultA ===  "5"){
+                document.getElementById('form5').style.display = '';
+            }
+        }
+    </script>
 <div class="row">
 </div>
 
@@ -27,56 +143,49 @@
 </head>
 <body>
 
-<h2>Please Rate Your Experience</h2>
 
 
-<ul class="navbar-nav">
-  <li class="nav-item navbar-text">
-  <li class="nav-item dropdown navbar-text">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Stars</a>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href={{ url_for('five_stars') }}>5 Stars</a></li>
-      <li><a class="dropdown-item" href={{ url_for('four_stars') }}>4 Stars</a></li>
-      <li><a class="dropdown-item" href={{ url_for('three_stars') }}>3 Stars</a></li>
-      <li><a class="dropdown-item" href={{ url_for('two_stars') }}>2 Stars</a></li>
-      <li><a class="dropdown-item" href={{ url_for('one_star') }}>1 Star</a></li>
-    </ul>
-  </li>
-</ul>
-
-
-
-</body>
-
-<body>
-
-<br>
-<br>
-<p id="parrot" style="color:black">
-</p>
-<p id="bara" style="color:black">
-</p>
-<p id="fara" style="color:black">
-</p>
-<p id="cara" style="color:black">
-</p>
-<p id="para" style="color:black">
-</p>
-</body>
-<script>
-  if (typeof(Storage) != "undefined") {
-    //retrieve the comment from web local storage
-    document.getElementById("parrot").innerHTML = "FIVE STAR : " + localStorage.getItem("lastpost_five_stars");
-    document.getElementById("bara").innerHTML = "FOUR STAR : " + localStorage.getItem("lastpost_four_stars");
-    document.getElementById("fara").innerHTML = "THREE STAR : " + localStorage.getItem("lastpost_three_stars");
-    document.getElementById("cara").innerHTML = "TWO STAR : " + localStorage.getItem("lastpost_two_stars");
-    document.getElementById("para").innerHTML = "ONE STAR : " + localStorage.getItem("lastpost_one_star");
-  }
-  else {
-    document.getElementById("para").innerHTML = "Sorry, your browser does not support Web Storage...";
-  }
-  
-</script>
+<div id = "form1" style = "display:none">
+    <form action="/onestar" id="publish" method="POST" >
+        <label for="review">Tell us why it's 1 star here...</label>
+        <input name="review" id="review">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div id = "form2" style = "display:none">
+    <form action="/twostars" id="publish" method="POST" >
+        <label for="review">Tell us why it's 2 stars here...</label>
+        <input name="review" id="review">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div id = "form3" style = "display:none">
+    <form action="/threestars" id="publish" method="POST" >
+        <label for="review">Tell us why it's 3 stars here...</label>
+        <input name="review" id="review">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div id = "form4" style = "display:none">
+    <form action="/fourstars" id="publish" method="POST" >
+        <label for="review">Tell us why it's 4 stars here...</label>
+        <input name="review" id="review">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div id = "form5" style = "display:none">
+    <form action="/fivestars" id="publish" method="POST" >
+        <label for="review">Tell us why it's 5 stars here...</label>
+        <input name="review" id="review">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<p>Average: {{average}}</p>
+<p>5 Star Reviews: {{ fivestarsreview }}</p>
+<p>4 Star Reviews: {{ fourstarsreview }}</p>
+<p>3 Star Reviews: {{ threestarsreview }}</p>
+<p>2 Star Reviews: {{ twostarsreview }}</p>
+<p>1 Star Reviews: {{ onestarreview }}</p>
 
 </body>
 
