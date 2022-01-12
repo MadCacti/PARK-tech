@@ -64,17 +64,7 @@
     </ul>
 
     <ul style="padding-left: 40px" class="nav navbar-nav mr-auto">
-        <li class="nav-item navbar-text">
-        <li class="nav-item dropdown navbar-text" id="homeBody">
-        <li class="nav-item">
-            <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Databases</a>
-            <ul style="margin-left: 10em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                    <a class="dropdown-item" href={{ url_for('databases') }}>Find by Book</a>
-                    <a class="dropdown-item" href={{ url_for('database1') }}>Find by Type</a>
-                </li>
-            </ul>
-        </li>
+
     </ul>
 
     <ul style="padding-left: 40px" class="nav navbar-nav mr-auto">
@@ -95,11 +85,21 @@
         </li>
     <ul style="padding-right: 50px" class="nav navbar-nav navbar-right">
         <li style="padding-right: 15px" class="nav-item">
-            <a style="font-size: 20px" class="nav-link" href={{ url_for('search') }}>Book Ratings</a>
+            <a style="font-size: 20px" class="nav-link" href={{ url_for('search') }}>Find Books</a>
         </li>
-
         <li style="padding-right: 40px; padding-left: 43px" class="nav-item">
             <a style="font-size: 20px" class="nav-link" href={{ url_for('rating_test') }}>Ratings</a>
+        </li>
+        <li class="nav-item navbar-text">
+        <li class="nav-item dropdown navbar-text" id="homeBody">
+        <li class="nav-item">
+            <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Databases</a>
+            <ul style="margin-left: 10em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a class="dropdown-item" href={{ url_for('databases') }}>Find by Book</a>
+                    <a class="dropdown-item" href={{ url_for('database1') }}>Find by Type</a>
+                </li>
+            </ul>
         </li>
         <li class="nav-item">
             <a style="font-size: 20px" class="nav-link" href={{ url_for('moreinfo') }}>More Info</a>
