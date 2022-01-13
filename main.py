@@ -90,6 +90,7 @@ def rating_test():
     sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
     if total != 0:
         average = sum / total
+        average = round(average, 2)
     else:
         average = 0
     return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
@@ -101,6 +102,7 @@ def fivestars():
     sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
     if total != 0:
         average = sum / total
+        average = round(average, 2)
     else:
         average = 0
     if request.form:
@@ -111,6 +113,7 @@ def fivestars():
             sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
             if total != 0:
                 average = sum / total
+                average = round(average, 2)
             else:
                 average = 0
             return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
@@ -123,6 +126,7 @@ def fourstars():
     sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
     if total != 0:
         average = sum / total
+        average = round(average, 2)
     else:
         average = 0
     if request.form:
@@ -133,6 +137,7 @@ def fourstars():
             sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
             if total != 0:
                 average = sum / total
+                average = round(average, 2)
             else:
                 average = 0
             return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
@@ -145,6 +150,7 @@ def threestars():
     sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
     if total != 0:
         average = sum / total
+        average = round(average, 2)
     else:
         average = 0
     if request.form:
@@ -155,6 +161,7 @@ def threestars():
             sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
             if total != 0:
                 average = sum / total
+                average = round(average, 2)
             else:
                 average = 0
             return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
@@ -167,6 +174,7 @@ def twostars():
     sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
     if total != 0:
         average = sum / total
+        average = round(average, 2)
     else:
         average = 0
     if request.form:
@@ -177,6 +185,7 @@ def twostars():
             sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
             if total != 0:
                 average = sum / total
+                average = round(average, 2)
             else:
                 average = 0
             return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
@@ -189,6 +198,7 @@ def onestar():
     sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
     if total != 0:
         average = sum / total
+        average = round(average, 2)
     else:
         average = 0
     if request.form:
@@ -199,13 +209,11 @@ def onestar():
             sum = len(onestar_list) + len(twostars_list) * 2 + len(threestars_list) * 3 + len(fourstars_list) * 4 + len(fivestars_list) * 5
             if total != 0:
                 average = sum / total
+                average = round(average, 2)
             else:
                 average = 0
             return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
     return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
-
-
-
 
 
 @app.route('/databases/')
@@ -243,10 +251,11 @@ def register():
     return render_template("register.html")
 
 
-
 @app.route('/error/')
 def error():
     return render_template("error.html")
+
+
 @app.route('/random')
 def random():
     return render_template("randombook.html")
@@ -254,6 +263,7 @@ def random():
 # def crud():
 #     """obtains all Users from table and loads Admin Form"""
 #     return render_template("crud/templates/crud/crud.html")
+
 
 if __name__ == "__main__":
     app.run(
