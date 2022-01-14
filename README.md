@@ -8,6 +8,8 @@ Table of contents
 * [Week 1](#Week-1)
 * [Week 2](#Week-2)
 * [Week 3](#Week-3)
+* [Week 4](#Week-4)
+* [Week 5](#Week-5)
 <!--te-->
 
 Credits
@@ -93,5 +95,10 @@ Commit | Person | Description
 [Dark/Light Modes (WIP)](https://github.com/MadCacti/PARK-tech/commit/33edb419630408f330d44cee856d5fdab5efbc36) | Armaan | Working on a Dark mode for contrast compared to the currently white navbar.
 [Database fixing](https://github.com/MadCacti/PARK-tech/commit/bc24214edbbb1f1dcad573cc51308f2d461daf81)| Kurtis | Fix some issues with the databases that prevent it from operating properly.
 
+Week-5
+===============
 
-
+Commit | Person | Description
+------ | ------ | -----------
+[Star rating system(algorithm)](https://github.com/MadCacti/PARK-tech/commit/6814243448bc5dd18cd074d75167875228ac2cac) | Raiden | Alter the rating system to allow for list usage. Can put into a for loop for every book. Added averaging algorithm to work through the lists.
+[Star rating system(display)](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Paul | Worked on rating system(frontend HTML) with Raiden to make it more appealing.
