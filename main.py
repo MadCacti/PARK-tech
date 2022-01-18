@@ -6,10 +6,9 @@ import requests
 from flask import Flask, render_template, request
 from __init__ import app
 from newsapi.newsapi_client import NewsApiClient
+from templates.crud.app_crud import app_crud
 
-# from templates.crud.app_crud import app_crud
-
-# app.register_blueprint(app_crud)
+app.register_blueprint(app_crud)
 
 # create a Flask instance
 app = Flask(__name__)

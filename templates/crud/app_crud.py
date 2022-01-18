@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, url_for, redirect, jsonif
 # from crud.sql import *
 
 # blueprint defaults https://flask.palletsprojects.com/en/2.0.x/api/#blueprint-objects
-app_crud = Blueprint('crud', __name__,
+app_crud: Blueprint = Blueprint('crud', __name__,
                      url_prefix='/crud',
                      template_folder='templates/crud/',
                      static_folder='static',
