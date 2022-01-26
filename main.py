@@ -3,7 +3,7 @@ import json
 
 # import app as app
 import requests
-from flask import Flask, render_template, request
+from flask import render_template, request, Flask
 from __init__ import app
 from newsapi.newsapi_client import NewsApiClient
 from templates.crud.app_crud import app_crud
