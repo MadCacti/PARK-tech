@@ -1,0 +1,37 @@
+/* light mode */
+/* selects the original element of the html document */
+:root {
+  --color-page-background: rgba(0, 0, 0, 0.15);
+  --color-text: black;
+  --color-border: black;
+}
+
+/* dark mode */
+.dark {
+  --color-page-background: black;
+  --color-text: white;
+  --color-border: white;
+}
+
+body {
+  background-color: var(--color-page-background);
+  color: var(--color-text);
+}
+
+.switch {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  background-color: var(--color-black);
+  border: 0px solid var(--color-text);
+  color: var(--color-text);
+  text-align: center;
+  width: 60px;
+  height: 34px;
+}
+
+button {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=Mode.css.map */
