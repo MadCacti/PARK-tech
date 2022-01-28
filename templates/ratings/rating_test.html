@@ -54,11 +54,29 @@
         }
     </style>
     <h2>Rate the book!</h2>
-    <form action= id="publish" method="POST" >
-        <label for="review">Find Book</label>
-        <input name="search" id="search">
-        <input type="submit" value="Submit">
-    </form>
+    <h3 style="text-align: center">{{ rate }}{{ thename }}</h3>
+    <div class="row">
+        <div style="width: 50%">
+            <form action="/bookname" id="publish" method="POST" >
+                <label for="review">Find Book</label>
+                <input name="search" id="search">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div style="width: 50%">
+            <form action="/info" id="publish" method="POST" >
+                <label>Find quick info on {{ thename }} before you rate!</label>
+                <select id="input1" name="input1">
+                    <option value="3"> </option>
+                    <option value="0">Author</option>
+                    <option value="1">Summary</option>
+                    <option value="2">Cover</option>
+                </select>
+                <input type="submit">
+                <p>Here: {{ output }}</p>
+            </form>
+        </div>
+    </div>
     <div class="row">
         <div class="star-rating1">
             <input type="radio" name="stars" id="star-a1" value="5"/>
@@ -119,6 +137,13 @@
     </script>
 <div class="row">
 </div>
+<style>
+    .datable {
+        width: 10%;
+        border: 3px solid mediumpurple;
+    }
+</style>
+
 
 <head>
   <style>
@@ -141,52 +166,49 @@
     }
   </style>
 </head>
-<body>
-
-
-
-<div id = "form1" style = "display:none">
-    <form action="/onestar" id="publish" method="POST" >
-        <label for="review">Tell us why it's 1 star here...</label>
-        <input name="review" id="review">
-        <input type="submit" value="Submit">
-    </form>
+<div>
+    <div id = "form1" style = "display:none">
+        <form action="/onestar" id="publish" method="POST" >
+            <label for="review">Tell us why it's 1 star here...</label>
+            <input name="review" id="review">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id = "form2" style = "display:none">
+        <form action="/twostars" id="publish" method="POST" >
+            <label for="review">Tell us why it's 2 stars here...</label>
+            <input name="review" id="review">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id = "form3" style = "display:none">
+        <form action="/threestars" id="publish" method="POST" >
+            <label for="review">Tell us why it's 3 stars here...</label>
+            <input name="review" id="review">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id = "form4" style = "display:none">
+        <form action="/fourstars" id="publish" method="POST" >
+            <label for="review">Tell us why it's 4 stars here...</label>
+            <input name="review" id="review">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id = "form5" style = "display:none">
+        <form action="/fivestars" id="publish" method="POST" >
+            <label for="review">Tell us why it's 5 stars here...</label>
+            <input name="review" id="review">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </div>
-<div id = "form2" style = "display:none">
-    <form action="/twostars" id="publish" method="POST" >
-        <label for="review">Tell us why it's 2 stars here...</label>
-        <input name="review" id="review">
-        <input type="submit" value="Submit">
-    </form>
-</div>
-<div id = "form3" style = "display:none">
-    <form action="/threestars" id="publish" method="POST" >
-        <label for="review">Tell us why it's 3 stars here...</label>
-        <input name="review" id="review">
-        <input type="submit" value="Submit">
-    </form>
-</div>
-<div id = "form4" style = "display:none">
-    <form action="/fourstars" id="publish" method="POST" >
-        <label for="review">Tell us why it's 4 stars here...</label>
-        <input name="review" id="review">
-        <input type="submit" value="Submit">
-    </form>
-</div>
-<div id = "form5" style = "display:none">
-    <form action="/fivestars" id="publish" method="POST" >
-        <label for="review">Tell us why it's 5 stars here...</label>
-        <input name="review" id="review">
-        <input type="submit" value="Submit">
-    </form>
-</div>
-<p>Average: {{average}}</p>
-<p>5 Star Reviews: {{ fivestarsreview }}</p>
-<p>4 Star Reviews: {{ fourstarsreview }}</p>
-<p>3 Star Reviews: {{ threestarsreview }}</p>
-<p>2 Star Reviews: {{ twostarsreview }}</p>
-<p>1 Star Reviews: {{ onestarreview }}</p>
-
+    <p>Average: {{average}}</p>
+    <p>5 Star Reviews: {{ fivestarsreview }}</p>
+    <p>4 Star Reviews: {{ fourstarsreview }}</p>
+    <p>3 Star Reviews: {{ threestarsreview }}</p>
+    <p>2 Star Reviews: {{ twostarsreview }}</p>
+    <p>1 Star Reviews: {{ onestarreview }}</p>
 </body>
 
 {% endblock %}
