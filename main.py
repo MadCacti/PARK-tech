@@ -3,21 +3,21 @@ import json
 
 # import app as app
 import requests
-from flask import Flask, render_template, request
+from flask import render_template, request, Flask
 from __init__ import app
 from newsapi.newsapi_client import NewsApiClient
+from crud.app_crud import app_crud
 
-# from templates.crud.app_crud import app_crud
-
-# app.register_blueprint(app_crud)
+app.register_blueprint(app_crud)
 
 # create a Flask instance
-app = Flask(__name__)
 
 yourAPIKEY = '8169dc4f99474483ab5999bc2c761381'  # write your API key here
 newsapi = NewsApiClient(api_key=yourAPIKEY)
 
 # connects default URL to render index.html
+
+
 @app.route('/')
 def index():
     return render_template("index.html")

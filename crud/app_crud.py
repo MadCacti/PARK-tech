@@ -8,7 +8,7 @@ app_crud = Blueprint('crud', __name__,
                      url_prefix='/crud',
                      template_folder='templates/crud/',
                      static_folder='static',
-                     static_url_path='static')
+                     static_url_path='assets')
 
 """ Application control for CRUD is main focus of this File, key features:
     1.) User table queries
@@ -20,7 +20,7 @@ app_crud = Blueprint('crud', __name__,
 @app_crud.route('/')
 def crud():
     """obtains all Users from table and loads Admin Form"""
-    return render_template("crud.html", table=users_all())
+    return render_template("crud.html", table=[])
 
 
 # CRUD create/add
