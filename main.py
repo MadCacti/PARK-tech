@@ -2,7 +2,6 @@
 import json
 
 # import app as app
-# import requests
 from flask import render_template, request
 from __init__ import app
 from newsapi.newsapi_client import NewsApiClient
