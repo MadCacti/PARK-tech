@@ -102,3 +102,5 @@ Commit | Person | Description
 ------ | ------ | -----------
 [Star rating system(algorithm)](https://github.com/MadCacti/PARK-tech/commit/6814243448bc5dd18cd074d75167875228ac2cac) | Raiden | Alter the rating system to allow for list usage. Can put into a for loop for every book. Added averaging algorithm to work through the lists.
 [Star rating system(display)](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Paul | Worked on rating system(frontend HTML) with Raiden to make it more appealing.
+[DARK MODE/LIGHT BOOTSTRAP/SASSY](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Armaan | Can now toggle between light and dark mode on all the pages using CSS and SCSS.
+
