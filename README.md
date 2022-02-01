@@ -103,4 +103,5 @@ Commit | Person | Description
 [Star rating system(algorithm)](https://github.com/MadCacti/PARK-tech/commit/6814243448bc5dd18cd074d75167875228ac2cac) | Raiden | Alter the rating system to allow for list usage. Can put into a for loop for every book. Added averaging algorithm to work through the lists.
 [Star rating system(display)](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Paul | Worked on rating system(frontend HTML) with Raiden to make it more appealing.
 [Dark/Light Mode Bootsrap/SASSY](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Armaan | Can now toggle between light and dark mode on thorougly on TEST.html using CSS and SCSS (will be implementing to all pages ASAP-still learning through trial and error).
+[CRUD Working](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Kurtis | Finally got CRUD working in several different pagges of the site (took a long time to grasp but feels amazing to finally do it correctly).
 
