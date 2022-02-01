@@ -206,6 +206,10 @@ def login():
 def register():
     return render_template("register.html")
 
+@app.route('/TEST/')
+def TEST():
+    return render_template("profiles/TEST.html")
+
 
 @app.route('/error/')
 def error():
