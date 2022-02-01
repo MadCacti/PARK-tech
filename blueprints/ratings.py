@@ -153,7 +153,7 @@ def onestar():
     return render_template("ratings/rating_test.html", fivestarsreview=fivestars_list, fourstarsreview=fourstars_list, threestarsreview=threestars_list, twostarsreview=twostars_list, onestarreview=onestar_list, average=average)
 
 
-@app.route('/info', methods=['GET', 'POST'])
+@ratings.route('/info', methods=['GET', 'POST'])
 def info():
     if request.form:
         resultA = request.form.get("input1")
@@ -165,7 +165,7 @@ def info():
     return render_template("ratings/rating_test.html")
 
 
-@app.route('/bookname', methods=['GET', 'POST'])
+@ratings.route('/bookname', methods=['GET', 'POST'])
 def bookname():
     if request.form:
         name = request.form.get("search")

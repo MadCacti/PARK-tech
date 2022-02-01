@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
 <!-- EXTEND (layout.html), this is a template for all rendered pages in the project -->
-{% extends "layouts/base.html" %}
+{% include "layouts/base.html" %}
 
 <!-- CONTENT (in <head>), content for this page -->
 {% block meta %}
 <title>CRUD page</title>
+    <link rel="stylesheet" href="/static/css/custom.css" type="text/css">
 
 <!-- Password verification and error message -->
 <script>
