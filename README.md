@@ -4,12 +4,13 @@ Table of contents
 <!--ts-->
 * [Credits](#credits)
 * [Runtime Link](#runtime)
-* [Week 0](#Week-0)
-* [Week 1](#Week-1)
-* [Week 2](#Week-2)
-* [Week 3](#Week-3)
-* [Week 4](#Week-4)
-* [Week 5](#Week-5)
+* [Week 0](#Week0)
+* [Week-1](#Week-1)
+* [Week-2](#Week-2)
+* [Week-3](#Week-3)
+* [Week-4](#Week-4)
+* [Week-5-7](#Week-5-7)
+* [Week-8](#Week-8)
 <!--te-->
 
 Credits
@@ -37,8 +38,9 @@ Backup link: https://parktech.cf (currently down due to some personal maintenanc
 Example Login: test@test.com 
 Example Password: Password123!
 
-Week-0
-===============
+
+Week0
+=======
 Setup roles for team members.
 
 Role | Person | Description 
@@ -95,7 +97,7 @@ Commit | Person | Description
 [Dark/Light Modes (WIP)](https://github.com/MadCacti/PARK-tech/commit/33edb419630408f330d44cee856d5fdab5efbc36) | Armaan | Working on a Dark mode for contrast compared to the currently white navbar.
 [Database fixing](https://github.com/MadCacti/PARK-tech/commit/bc24214edbbb1f1dcad573cc51308f2d461daf81)| Kurtis | Fix some issues with the databases that prevent it from operating properly.
 
-Week-5
+Week-5-7
 ===============
 
 Commit | Person | Description
@@ -105,3 +107,15 @@ Commit | Person | Description
 [Dark/Light Mode Bootsrap/SASSY](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Armaan | Can now toggle between light and dark mode on thorougly on TEST.html using CSS and SCSS (will be implementing to all pages ASAP-still learning through trial and error).
 [CRUD Working](https://github.com/MadCacti/PARK-tech/commit/c18ceb92664adbb64a241d1cb4fe74d065bc7761) | Kurtis | Finally got CRUD working in several different pagges of the site (took a long time to grasp but feels amazing to finally do it correctly).
 
+Week-5-8
+===============
+**Group Reorganization**
+- Scrum Master gets a new team to work with for a week.
+
+Contributor | GitHub | Tasks | Scrum Board | Commits
+----------- | ----------- | ------------- | ------------- | ------------- | 
+Raiden Tung | [@MadCacti](https://github.com/MadCacti) | [Tasks](https://github.com/MadCacti/PARK-tech/issues) | [Scrum Board](https://github.com/MadCacti/PARK-tech/projects/1)  | [Commits](https://github.com/MadCacti/PARK-tech/commits/main?author=MadCacti) |
+Nathan Shih | [@NathanShih04](https://github.com/NathanShih04) | [Tasks](https://github.com/MadCacti/PARK-tech/issues/assigned/NathanShih04) | [Scrum Board](https://github.com/MadCacti/PARK-tech/projects/1) | [Commits](https://github.com/MadCacti/PARK-tech/commits?author=NathanShih04) |
+Timmy Lin | [@TimL1n](https://github.com/TimL1n) | [Tasks](https://github.com/MadCacti/PARK-tech/issues) | [Scrum Board](https://github.com/MadCacti/PARK-tech/projects/1) | [Commits](https://github.com/NoahJ214/MadCacti/PARK-tech/commits?author=TimL1n) |
+Noah Jeng | [@NoahJ214](https://github.com/NoahJ214) | [Tasks](https://github.com/MadCacti/PARK-tech/issues) | [Scrum Board](https://github.com/MadCacti/PARK-tech/projects/1) | [Commits](https://github.com/NoahJ214/MadCacti/PARK-tech/commits?author=NoahJ214) |
+Ritvik Keerthi | [@Ritvik-Keerthi](https://github.com/Ritvik-Keerthi) | [Tasks](https://github.com/MadCacti/PARK-tech/issues) | [Scrum Board](https://github.com/MadCacti/PARK-tech/projects/1) | [Commits](https://github.com//MadCacti/PARK-tech/commits?author=Ritvik-Keerthi) 
