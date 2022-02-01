@@ -23,3 +23,4 @@ def scrape():
     browser.quit()
 
     return listings
+
