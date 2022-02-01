@@ -3,6 +3,10 @@ from newsapi.newsapi_client import NewsApiClient
 import requests
 import json
 
+yourAPIKEY = '8169dc4f99474483ab5999bc2c761381'  # write your API key here
+newsapi = NewsApiClient(api_key=yourAPIKEY)
+
+
 profiles = Blueprint('profiles', __name__,
                         url_prefix='/',
                         template_folder='templates',
