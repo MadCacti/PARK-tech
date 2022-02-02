@@ -40,7 +40,7 @@
             style="text-align: center"
             class="btn btn-primary loginbtn"
             type="submit"
-            onclick="login()"
+            onclick="register()"
             value="Have a account? Login!"
     />
     <meta charset="utf-8">
@@ -55,6 +55,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
 
     <script>
+        function register() {
+            window.location.pathname = "/login/"
+        }
         const config = {
             apiKey: "AIzaSyBisdbzYucwEc0Rxwl5QuMdGZt-V7XisNA",
             authDomain: "park-tech1.firebaseapp.com",
@@ -78,10 +81,10 @@
             const password = form["password"].value;
             auth.createUserWithEmailAndPassword(email, password).then(function (){
                 console.log('signed uppathname successfully')
-                window.location.pathname = '/login'
+                window.location.pathname = '/login/'
             }).catch((err) => {
                 if (err.code === "auth/email-already-in-use") {
-                    window.location. = "/error/"
+                    window.location.pathname = "/error/"
                 }
                 if (err.code === "auth/weak-password") {
                     window.location.pathname = "/error/"
@@ -91,9 +94,6 @@
                 }
             });
         };
-        function login() {
-            window.location.pathname = "/login/"
-        }
     </script>
     </body>
 </div>
