@@ -73,7 +73,7 @@ $theme-colors: (
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #0d6efd;
+  --bs-primary: #ff0000;
   --bs-secondary: #ff0000;
   --bs-success: #ADD8E6
 ;
@@ -104,7 +104,7 @@ $theme-colors: (
   --bs-body-color: #ffffff;
 
 
-  background-image: url("https://i.ytimg.com/vi/y7TVqzf9uWQ/maxresdefault.jpg");
+  background-image: url("https://buddhify.com/wp-content/uploads/2018/07/iStock-689785084.jpg");
   background-repeat: no-repeat;
   background-size: 200%;
 
