@@ -9,13 +9,13 @@ newsapi = NewsApiClient(api_key=yourAPIKEY)
 
 profiles = Blueprint('profiles', __name__,
                         url_prefix='/',
-                        template_folder='templates',
+                        template_folder='profiles',
                         static_folder='static', static_url_path='assets')
 
 
 @profiles.route('/raiden/')
 def raiden():
-    return render_template("profiles/raiden.html", news='')
+    return render_template("raiden.html", news='')
 
 
 @profiles.route('/raiden/results/', methods=['POST'])
@@ -28,16 +28,16 @@ def get_results():
                                      language='en',  # optional and you can change also
                                      country='in')
     # print(news['articles'])
-    return render_template('profiles/raiden.html', news=news['articles'])
+    return render_template('raiden.html', news=news['articles'])
 
 @profiles.route('/paul/')
 def paul():
-    return render_template("profiles/paul.html")
+    return render_template("paul.html")
 
 
 @profiles.route('/armaan/')
 def armaan():
-    return render_template("profiles/armaan.html")
+    return render_template("armaan.html")
 
 
 @profiles.route('/kurtis/')
@@ -52,4 +52,4 @@ def kurtis():
     response = requests.request("GET", url, headers=headers, params=querystring)
     output = json.loads(response.text)
     print(output)
-    return render_template("profiles/kurtis.html", question=output)
+    return render_template("kurtis.html", question=output)

@@ -61,7 +61,7 @@ def register():
 
 @app.route('/TEST/')
 def TEST():
-    return render_template("profiles/TEST.html")
+    return render_template("blueprints/profiles/TEST.html")
 
 
 @app.route('/error/')
