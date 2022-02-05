@@ -18,7 +18,3 @@ def snake():
 @app_frontend.route('/life')
 def life():
     return render_template("life.html")
-
-@app_frontend.route('/graph')
-def gsearch():
-    return render_template("gsearch.html")
