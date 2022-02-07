@@ -45,7 +45,7 @@ def timer():
 
 @profiles.route('/randombook/')
 def randombook():
-    return render_template("randombook.html")
+    return render_template("randbook/randombook.html")
 
 @profiles.route('/kurtis/')
 def kurtis():

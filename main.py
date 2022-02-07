@@ -70,7 +70,7 @@ def error():
 
 @app.route('/random')
 def random():
-    return render_template("randombook.html")
+    return render_template("blueprints/profiles/randombook.html")
 # @app.route('/crud')
 # def crud():
 #     """obtains all Users from table and loads Admin Form"""
