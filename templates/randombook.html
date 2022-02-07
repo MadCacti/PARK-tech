@@ -1,24 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Random Book</title>
-</head>
-<body>
-<p id="random"></p>
+{% extends "layouts/base.html" %}
 
-<script>
-    let x = Math.floor((Math.random() * 100) + 1);
-    document.getElementById("random").innerHTML = x;
+{% block content %}
 
-    function isPrime(x) {
-        for (let i = 2; i * i <= x; i++)
-            if (x % i === 0)
-                return false;
-        return x > 1;
-    }
-</script>
+    <head>
+        <title>Book Recommendation</title>
+    </head>
+    <body>
+    <h1>Books to Check Out</h1>
+    <div id="bookDisplay">
+        <!-- Book displayed here -->
+    </div>
+    <button onclick="newBook()">New Book</button>
 
+    <script>
+        var books = [
+            "Madame Bovary by Gustave Flaubert",
+            "Ulysses by James Joyce",
+            "In Search of Lost Time by Marcel Proust",
+            "Don Quixote by Miguel de Cervantes",
+            "One Hundred Years of Solitude by Gabriel Garcia Marques",
+            "The Great Gatsby by F. Scott Fitzgerald",
+            "Moby Dick by Herman Melville",
+            "War and Peace by Leo Tolstoy",
+            "Hamlet by William Shakespeare",
+            "The Odyssey by Homer",
+        ];
 
-</body>
-</html>
+        function newBook() {
+            var randomNumber = Math.floor(Math.random() * (books.length));
+            document.getElementById('bookDisplay').innerHTML = books[randomNumber];
+        }
+    </script>
+    </body>
+
+{% endblock %}

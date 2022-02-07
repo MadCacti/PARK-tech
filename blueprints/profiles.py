@@ -39,9 +39,6 @@ def paul():
 def armaan():
     return render_template("armaan.html")
 
-@profiles.route('/timer/')
-def timer():
-    return render_template("timer.html")
 
 @profiles.route('/kurtis/')
 def kurtis():

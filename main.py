@@ -59,6 +59,21 @@ def register():
     return render_template("usersystem/register.html")
 
 
+@app.route('/timer/')
+def timer():
+    return render_template("timer.html")
+
+
+@app.route('/bookstore/')
+def bookstore():
+    return render_template("bookstore.html")
+
+
+@app.route('/randombook/')
+def randombook():
+    return render_template("randombook.html")
+
+
 @app.route('/TEST/')
 def TEST():
     return render_template("blueprints/profiles/TEST.html")

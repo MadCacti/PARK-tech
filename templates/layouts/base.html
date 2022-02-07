@@ -78,7 +78,7 @@
             </li>
         </ul>
     </li>
-    <ul style="padding-left: 40px" class="nav navbar-nav mr-auto"></ul>
+   <!-- <ul style="padding-left: 40px" class="nav navbar-nav mr-auto"></ul>
     <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Frontend</a>
     <ul style="margin-left: 20em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li>
@@ -87,7 +87,7 @@
             <a class="dropdown-item" href={{ url_for('frontend.snake') }}>Snake</a>
         </li>
     </ul>
-    </li>
+    </li> -->
 
     <ul style="padding-left: 40px" class="nav navbar-nav mr-auto">
         <li class="nav-item navbar-text">
@@ -104,9 +104,16 @@
 
             </ul>
         </li>
+        <ul class="nav navbar-nav mr-auto">
     <ul style="padding-right: 60px" class="nav navbar-nav navbar-right">
         <li style="padding-right: 15px" class="nav-item">
             <a style="font-size: 20px" class="nav-link" href={{ url_for('search') }}>Find Books</a>
+        </li>
+        <li style="padding-right: 15px" class="nav-item">
+            <a style="font-size: 20px" class="nav-link" href={{ url_for('bookstore') }}>Bookstore</a>
+        </li>
+        <li style="padding-right: 15px" class="nav-item">
+            <a style="font-size: 20px" class="nav-link" href={{ url_for('timer') }}>Timer</a>
         </li>
         <li style="padding-right: 15px" class="nav-item">
             <a style="font-size: 20px" class="nav-link" href={{ url_for('ratings.rating_test') }}>Ratings</a>
@@ -125,6 +132,7 @@
         <a style="font-size: 20px" class="nav-link" href={{ url_for('register') }}>Register</a>
         </li>
     </ul>
+        </ul>
 </nav>
 <!--<body class="baseNav" style="background-color: red">-->
 <div class="row">
