@@ -10,3 +10,15 @@ app_frontend = Blueprint('frontend', __name__,
 @app_frontend.route('/graph')
 def graph():
     return render_template("graph.html")
+
+@app_frontend.route('/life')
+def life():
+    return render_template("life.html")
+
+@app_frontend.route('/snake')
+def snake():
+    return render_template("snake.html")
+
+@app_frontend.route('/gsearch')
+def gsearch():
+    return render_template("googlesearch.html")
