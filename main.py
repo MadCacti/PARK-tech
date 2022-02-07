@@ -8,7 +8,9 @@ from __init__ import app
 from crud.app_crud import app_crud
 from blueprints.profiles import profiles
 from blueprints.ratings import ratings
+from frontend.frontend import app_frontend
 
+app.register_blueprint(app_frontend)
 app.register_blueprint(app_crud)
 app.register_blueprint(profiles)
 app.register_blueprint(ratings)
