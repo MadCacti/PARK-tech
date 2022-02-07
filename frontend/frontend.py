@@ -11,6 +11,7 @@ app_frontend = Blueprint('frontend', __name__,
 def graph():
     return render_template("graph.html")
 
+
 @app_frontend.route('/life')
 def life():
     return render_template("life.html")
@@ -19,6 +20,12 @@ def life():
 def snake():
     return render_template("snake.html")
 
+
 @app_frontend.route('/gsearch')
 def gsearch():
     return render_template("googlesearch.html")
+
+@app_frontend.route('/life')
+def life():
+    return render_template("life.html")
+

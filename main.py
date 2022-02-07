@@ -51,23 +51,22 @@ def moreinfo():
 
 @app.route('/login/', methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    return render_template("usersystem/login.html")
 
 
 @app.route('/register/')
 def register():
-    return render_template("register.html")
+    return render_template("usersystem/register.html")
 
 
 @app.route('/TEST/')
 def TEST():
-    return render_template("profiles/TEST.html")
+    return render_template("blueprints/profiles/TEST.html")
 
 
 @app.route('/error/')
 def error():
-    return render_template("error.html")
-
+    return render_template("usersystem/error.html")
 
 @app.route('/random')
 def random():
