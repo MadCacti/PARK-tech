@@ -40,6 +40,10 @@ def armaan():
     return render_template("armaan.html")
 
 
+@profiles.route('/randombook/')
+def randombook():
+    return render_template("randbook/randombook.html")
+
 @profiles.route('/kurtis/')
 def kurtis():
 
