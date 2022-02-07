@@ -43,6 +43,10 @@ def armaan():
 def timer():
     return render_template("timer.html")
 
+@profiles.route('/randombook/')
+def randombook():
+    return render_template("randombook.html")
+
 @profiles.route('/kurtis/')
 def kurtis():
 
