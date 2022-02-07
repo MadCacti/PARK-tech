@@ -1,6 +1,4 @@
-let btn = document.getElementById('btn');
-let output = document.getElementById('output');
-let quotes = [
+var books = [
     "Madame Bovary by Gustave Flaubert",
     "Ulysses by James Joyce",
     "In Search of Lost Time by Marcel Proust",
@@ -13,7 +11,7 @@ let quotes = [
     "The Odyssey by Homer",
 ];
 
-btn.addEventListener('click', function(){
-    var randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
-    output.innerHTML = randomQuote;
-})
+function newBook() {
+    var randomNumber = Math.floor(Math.random() * (books.length));
+    document.getElementById('bookDisplay').innerHTML = books[randomNumber];
+}
