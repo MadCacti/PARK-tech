@@ -43,7 +43,6 @@ def armaan():
 def timer():
     return render_template("timer.html")
 
-
 @profiles.route('/kurtis/')
 def kurtis():
 
