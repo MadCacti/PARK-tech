@@ -68,7 +68,6 @@ def TEST():
 def error():
     return render_template("usersystem/error.html")
 
-
 @app.route('/random')
 def random():
     return render_template("randombook.html")

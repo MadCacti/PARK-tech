@@ -39,6 +39,10 @@ def paul():
 def armaan():
     return render_template("armaan.html")
 
+@profiles.route('/bookstore/')
+def bookstore():
+    return render_template("bookstore.html")
+
 
 @profiles.route('/kurtis/')
 def kurtis():
