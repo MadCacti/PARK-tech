@@ -77,52 +77,52 @@
                 <a class="dropdown-item" href={{ url_for('crud.crud')}}>SQL Crud</a>
             </li>
         </ul>
-    </li>
-
-    <ul style="padding-left: 40px" class="nav navbar-nav mr-auto">
-        <li class="nav-item navbar-text">
-        <li class="nav-item dropdown navbar-text" id="homeBody">
-        <li class="nav-item">
-            <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">About Us</a>
-            <ul style="margin-left: 30em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                    <a class="dropdown-item" href={{ url_for('profiles.paul') }}>Paul</a>
-                    <a class="dropdown-item" href={{ url_for('profiles.armaan') }}>Armaan</a>
-                    <a class="dropdown-item" href={{ url_for('profiles.raiden') }}>Raiden</a>
-                    <a class="dropdown-item" href={{ url_for('profiles.kurtis') }}>Kurtis</a>
-                </li>
-
-            </ul>
-        </li>
-        <ul class="nav navbar-nav mr-auto">
-    <ul style="padding-right: 60px" class="nav navbar-nav navbar-right">
-        <li style="padding-right: 15px" class="nav-item">
-            <a style="font-size: 20px" class="nav-link" href={{ url_for('search') }}>Find Books</a>
-        </li>
-        <li style="padding-right: 15px" class="nav-item">
-            <a style="font-size: 20px" class="nav-link" href={{ url_for('bookstore') }}>Bookstore</a>
-        </li>
-        <li style="padding-right: 15px" class="nav-item">
-            <a style="font-size: 20px" class="nav-link" href={{ url_for('timer') }}>Timer</a>
-        </li>
-        <li style="padding-right: 15px" class="nav-item">
-            <a style="font-size: 20px" class="nav-link" href={{ url_for('ratings.rating_test') }}>Ratings</a>
-        </li>
-
-        <li class="nav-item">
-        <li style="padding-right: 15px" class="nav-item">
-        <a style="font-size: 20px" class="nav-link" href={{ url_for('moreinfo') }}>More Info</a>
-        </li>
-        <li class="nav-item">
-        <li style="padding-right: 10px" class="nav-item">
-        <a style="font-size: 20px" class="nav-link" href={{ url_for('login') }}> Login</a>
-        </li>
-        <li class="nav-item">
-        <li style="padding-right: 10px" class="nav-item">
-        <a style="font-size: 20px" class="nav-link" href={{ url_for('register') }}>Register</a>
-        </li>
     </ul>
+
+        <ul class="nav nav-item navbar-text navbar-nav mr-auto">
+            <li style="padding-right: 80px" class="nav navbar-nav navbar-right">
+            <li class="nav-item navbar-text">
+            <li class="nav-item dropdown navbar-text" id="homeBody">
+            <li class="nav-item">
+                <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">About Us</a>
+                <ul style="margin-left: 17em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" href={{ url_for('profiles.paul') }}>Paul</a>
+                        <a class="dropdown-item" href={{ url_for('profiles.armaan') }}>Armaan</a>
+                        <a class="dropdown-item" href={{ url_for('profiles.raiden') }}>Raiden</a>
+                        <a class="dropdown-item" href={{ url_for('profiles.kurtis') }}>Kurtis</a>
+                    </li>
+                </ul>
+            </li>
+                <li style="padding-right: 15px" class="nav-item">
+                    <a style="font-size: 20px" class="nav-link" href={{ url_for('search') }}>Find Books</a>
+                </li>
+                <li style="padding-right: 15px" class="nav-item">
+                    <a style="font-size: 20px" class="nav-link" href={{ url_for('bookstore') }}>Bookstore</a>
+                </li>
+                <li style="padding-right: 15px" class="nav-item">
+                    <a style="font-size: 20px" class="nav-link" href={{ url_for('timer') }}>Timer</a>
+                </li>
+                <li style="padding-right: 15px" class="nav-item">
+                    <a style="font-size: 20px" class="nav-link" href={{ url_for('ratings.rating_test') }}>Ratings</a>
+                </li>
+                <li class="nav-item">
+                    <li style="padding-right: 15px" class="nav-item">
+                        <a style="font-size: 20px" class="nav-link" href={{ url_for('moreinfo') }}>More Info</a>
+                    </li>
+                </li>
+                <li class="nav-item">
+                    <li style="padding-right: 10px" class="nav-item">
+                        <a style="font-size: 20px" class="nav-link" href={{ url_for('login') }}> Login</a>
+                    </li>
+                </li>
+                <li class="nav-item">
+                    <li style="padding-right: 10px" class="nav-item">
+                        <a style="font-size: 20px" class="nav-link" href={{ url_for('register') }}>Register</a>
+                    </li>
+                </li>
         </ul>
+    </ul>
 </nav>
 <!--<body class="baseNav" style="background-color: red">-->
 <div class="row">
