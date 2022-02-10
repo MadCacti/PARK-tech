@@ -33,6 +33,10 @@ def databases():
 def search():
     return render_template("search.html")
 
+@app.route('/APct/')
+def APct():
+    return render_template("CreateTASK/APct.html")
+
 
 @app.route('/isbn/')
 def isbn():
