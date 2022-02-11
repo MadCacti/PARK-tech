@@ -80,7 +80,7 @@ def randombook():
 
 @app.route('/TEST/')
 def TEST():
-    return render_template("blueprints/profiles/TEST.html")
+    return render_template("TEST.html")
 
 
 @app.route('/error/')
@@ -89,11 +89,16 @@ def error():
 
 @app.route('/random')
 def random():
-    return render_template("blueprints/profiles/randombook.html")
+    return render_template("randombook.html")
 # @app.route('/crud')
 # def crud():
 #     """obtains all Users from table and loads Admin Form"""
 #     return render_template("crud/templates/crud/crud.html")
+
+
+@app.route('/hangman/')
+def hangman():
+    return render_template("hangman.html")
 
 
 if __name__ == "__main__":
