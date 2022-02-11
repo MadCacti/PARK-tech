@@ -1,0 +1,62 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+    <head>
+        <title>Hangman</title>
+    </head>
+    <body>
+    <h1>Do you want to play hangman? If so, select your mode.</h1>
+    <button onclick="bookHangman()">Books</button>
+    <button onclick="authorHangman()">Authors</button>
+    <div class="wrapper">
+        <div id="buttons">
+        </div>
+        <p id="mode"></p>
+        <div id="hold">
+        </div>
+        <p id="lives"></p>
+        <div class="container">
+        </div>
+    </div>
+    <script>
+        function init() {  // initializing game w/ standard 'things', notably the letters and such
+            var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+                'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+                't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            var mode;               // Modes
+            var selectMode;         // Selected
+            var word ;              // Selected word
+            var guess ;             // Guess, a letter
+            var guesses = [ ];      // Stored guessed letters
+            var lives ;             // Lives
+            var counter ;           // Counts correct letters
+            var space;              // Number of spaces in word '-'
+            var showLives = document.getElementById("lives");
+            var showMode = document.getElementById("mode");
+            var showClue = document.getElementById("clue");
+
+            // creates alphabet buttons bc we need those, probably. Grabbed from outside source.
+                myButtons = document.getElementById('buttons');
+                letters = document.createElement('ul');
+                for (var i = 0; i < alphabet.length; i++) {
+                    letters.id = 'alphabet';
+                    list = document.createElement('li');
+                    list.id = 'letter';
+                    list.innerHTML = alphabet[i];
+                    myButtons.appendChild(letters);
+                    letters.appendChild(list);
+                }
+            }
+
+        }
+        function bookHangman() {
+            init()
+        }
+        function authorHangman() {
+            init()
+        }
+    </script>
+    </body>
+
+{% endblock %}

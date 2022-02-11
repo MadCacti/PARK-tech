@@ -11,7 +11,7 @@ def authorgame(): # subgame, treat like minigame
     guessnum = 0
     authorlist = ["stephen king", "jk rowling", "george orwell", "mark twain", "william shakespeare", "roald dahl", "rick riordan", "dr seuss"]
     word = random.choice(authorlist)
-
+    blank = "_" * len(word)
 
 def game(): # core game itself
     option = str(input("Do you want to play hangman for books(1) or hangman for authors(2)?"))
