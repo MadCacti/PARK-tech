@@ -71,7 +71,8 @@ def getRandomWord():
 
     word = random.choice(words)
     return word
-
+def getRandomAuthor():
+    authors = ['stephen king', 'jk rowling', 'george orwell', 'mark twain', 'william shakespeare', 'roald dahl', 'rick riordan', 'dr seuss']
 
 def displayBoard(hang, missedLetters, correctLetters, book):
     print(hang[len(missedLetters)])
