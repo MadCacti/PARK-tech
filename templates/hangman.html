@@ -1,62 +1,109 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <head>
-        <title>Hangman</title>
-    </head>
-    <body>
-    <h1>Do you want to play hangman? If so, select your mode.</h1>
-    <button onclick="bookHangman()">Books</button>
-    <button onclick="authorHangman()">Authors</button>
-    <div class="wrapper">
-        <div id="buttons">
-        </div>
-        <p id="mode"></p>
-        <div id="hold">
-        </div>
-        <p id="lives"></p>
-        <div class="container">
-        </div>
+    <!-- Bootstrap 4 CDN -->
+
+    <title>Hangman</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Hangman</h1>
+    <p class="text-center">Spaces will be denoted as "-"</p>
+
+    <button onclick="randomWordauthors()">Authors</button>
+    <button onclick="randomWordbooks()">Books</button>
+
+    <div class="float-right">Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span></div>
+    <div class="text-center">
+        <p id="wordSpotlight">The word to be guessed goes here</p>
+        <div id="keyboard"></div>
+        <button class="btn btn-info" onClick="reset()">New game</button>
     </div>
-    <script>
-        function init() {  // initializing game w/ standard 'things', notably the letters and such
-            var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-                'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-                't', 'u', 'v', 'w', 'x', 'y', 'z'];
-            var mode;               // Modes
-            var selectMode;         // Selected
-            var word ;              // Selected word
-            var guess ;             // Guess, a letter
-            var guesses = [ ];      // Stored guessed letters
-            var lives ;             // Lives
-            var counter ;           // Counts correct letters
-            var space;              // Number of spaces in word '-'
-            var showLives = document.getElementById("lives");
-            var showMode = document.getElementById("mode");
-            var showClue = document.getElementById("clue");
+</div>
 
-            // creates alphabet buttons bc we need those, probably. Grabbed from outside source.
-                myButtons = document.getElementById('buttons');
-                letters = document.createElement('ul');
-                for (var i = 0; i < alphabet.length; i++) {
-                    letters.id = 'alphabet';
-                    list = document.createElement('li');
-                    list.id = 'letter';
-                    list.innerHTML = alphabet[i];
-                    myButtons.appendChild(letters);
-                    letters.appendChild(list);
-                }
-            }
+<script>
+    var books = ["great-gatsby", "harry-potter", "animal-farm", "cat-in-the-hat", "romeo-and-juliet"]
+    var authors = ["stephen-king", "jk-rowling", "george-orwell", "mark-twain", "william-shakespeare", "roald-dahl", "rick-riordan", "dr-seuss"]
+    let answer = '';
+    let maxWrong = 3;
+    let mistakes = 0;
+    let guessed = [];
+    let wordStatus = null;
 
-        }
-        function bookHangman() {
-            init()
-        }
-        function authorHangman() {
-            init()
-        }
-    </script>
-    </body>
+    function randomWordbooks() {
+        answer = books[Math.floor(Math.random() * books.length)];
+        generateButtons();
+        guessedWord();
+        mistakes = 0;
+        guessed = [];
+    }
+    function randomWordauthors() {
+        answer = authors[Math.floor(Math.random() * authors.length)];
+        generateButtons();
+        guessedWord();
+        mistakes = 0;
+        guessed = [];
+    }
 
+    function generateButtons() {
+        let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz-'.split('').map(letter =>
+            `
+      <button
+        class="btn btn-lg btn-primary m-2"
+        id='` + letter + `'
+        onClick="handleGuess('` + letter + `')"
+      >
+        ` + letter + `
+      </button>
+    `).join('');
+
+        document.getElementById('keyboard').innerHTML = buttonsHTML;
+    }
+
+    function handleGuess(chosenLetter) {
+        guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
+        document.getElementById(chosenLetter).setAttribute('disabled', true);
+
+        if (answer.indexOf(chosenLetter) >= 0) {
+            guessedWord();
+            checkIfGameWon();
+        } else if (answer.indexOf(chosenLetter) === -1) {
+            mistakes++;
+            updateMistakes();
+            checkIfGameLost();
+        }
+    }
+
+
+    function checkIfGameWon() {
+        if (wordStatus === answer) {
+            document.getElementById('wordSpotlight').innerHTML = 'The answer was: ' + answer;
+            document.getElementById('keyboard').innerHTML = 'You Won';
+        }
+    }
+
+    function checkIfGameLost() {
+        if (mistakes === maxWrong) {
+            document.getElementById('wordSpotlight').innerHTML = 'The answer was: ' + answer;
+            document.getElementById('keyboard').innerHTML = 'You Lost';
+        }
+    }
+
+    function guessedWord() {
+        wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+
+        document.getElementById('wordSpotlight').innerHTML = wordStatus;
+    }
+
+    function updateMistakes() {
+        document.getElementById('mistakes').innerHTML = mistakes;
+    }
+</script>
+</body>
+</html>
 {% endblock %}
