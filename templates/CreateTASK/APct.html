@@ -92,6 +92,7 @@
             this.x += this.speedX;
             this.y += this.speedY + this.gravitySpeed;
             this.hitBottom();
+            this.hitTop();
         }
         this.hitBottom = function() {
             var rockbottom = myGameArea.canvas.height - this.height;
@@ -100,12 +101,7 @@
                 this.gravitySpeed = 0;
             }
         }
-        this.newPosition = function() {
-            this.gravitySpeed += this.gravity;
-            this.x += this.speedX;
-            this.y += this.speedY + this.gravitySpeed;
-            this.hitTop();
-        }
+
         this.hitTop = function() {
             var rockTop = myGameArea.canvas.height + this.height;
             if (this.y > rockTop) {
