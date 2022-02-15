@@ -1,3 +1,5 @@
+import json
+
 from flask import Blueprint, render_template, request
 from newsapi.newsapi_client import NewsApiClient
 import requests
@@ -159,10 +161,13 @@ def info():
         resultA = request.form.get("input1")
         x = '{ "0":"Data A", "1":"Data B", "2":"Data C", "3":""}'
         # parse x:
-        y = json.loads(x)
+        y = json.load(x)
         myoutput = y[resultA]
         return render_template("ratings/rating_test.html", output=myoutput)
     return render_template("ratings/rating_test.html")
+
+
+
 
 
 @ratings.route('/bookname', methods=['GET', 'POST'])
