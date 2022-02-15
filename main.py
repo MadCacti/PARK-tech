@@ -2,7 +2,6 @@
 import json
 
 # import app as app
-# import requests
 from flask import render_template, request
 from __init__ import app
 from crud.app_crud import app_crud
@@ -94,12 +93,35 @@ def random():
 # def crud():
 #     """obtains all Users from table and loads Admin Form"""
 #     return render_template("crud/templates/crud/crud.html")
-
-
 @app.route('/hangman/')
 def hangman():
     return render_template("hangman.html")
 
+@app.route('/wishlist1', methods=['GET', 'POST'])
+def wishlist1(gen):
+    if request.form:
+        resultB = request.form.get("input1")
+        booknames = []
+        list1 = ["Harry Potter", "To kill a Mocking Bird", "Hunger Games", "The Great Gatsby", "The Giver"]
+        list2 = ["Harry Potter", "To kill a Mocking Bird", "Hunger Games", "The Great Gatsby", "The Giver"]
+        list3 = ["Harry Potter", "To kill a Mocking Bird", "Hunger Games", "The Great Gatsby", "The Giver"]
+        mylist = list(gen)
+        i = 0
+        while i < len(mylist):
+            print(f"Book {i + 1}")
+            resultB = input("Would you like to add " + mylist[i] + " to your wishlist? ")
+            if resultB == 'yes' or resultB == 'sure':
+                booknames.append(mylist[i])
+            i += 1
+        return render_template("Databases/database1.html", theoutput=booknames)
+    return render_template("Databases/database1.html")
 
+@app.route('/wishlist2', methods=['GET', 'POST'])
+def wishlist2():
+    if request.form:
+        resultA = request.form.get("input3")
+        wishlist1(resultA)
+        return render_template("Databases/database1.html")
+    return render_template("Databases/database1.html")
 if __name__ == "__main__":
     app.run( debug=True)
