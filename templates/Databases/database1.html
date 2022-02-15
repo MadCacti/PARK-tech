@@ -32,7 +32,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border: 2px solid silver;
+                border: 2px solid black;
                 border-radius: 25px;
             }
 
@@ -54,7 +54,7 @@
             .game-options-container span{
                 width: 45%;
                 height: 3rem;
-                border: 2px solid darkorange;
+                border: 2px solid black;
                 border-radius: 20px;
                 overflow: hidden;
             }
@@ -74,7 +74,7 @@
                 -ms-transform: scale(1.12);
                 -webkit-transform: scale(1.12);
                 transform: scale(1.12);
-                color: gold;
+                color: red;
             }
 
             input[type="radio"] {
@@ -82,10 +82,6 @@
                 display: none;
             }
 
-
-            input[type=radio]:checked ~ .option {
-                background: paleturquoise;
-            }
 
             .next-button-container{
                 width: 50%;
@@ -190,13 +186,6 @@
 
             <div class="modal-content-container">
 
-                <div class="grade-details">
-                    <p>Incorrect: <span id="incorrect-solution"></span></p>
-                    <p>Correct: <span id="correct-solution"></span></p>
-                    <p>Grade : <span id="grade"></span>%</p>
-                    <p><span id="remarks"></span></p>
-                </div>
-
                 <div class="modal-button-container">
                     <button onclick="ScoreModel()">GO</button>
                 </div>
@@ -209,10 +198,11 @@
             <div class="game-details-container">
                 <h1>Wishlist: <span id="current-list"></span></h1>
                 <h1> Book#: <span id="QNum"></span> / 5</h1>
+                <button onclick="chosen()">Switch</button>
             </div>
 
             <div class="game-question-container">
-                <h1>Add </h1>
+                <h1>Add</h1>
                 <h1 id="display-question"></h1>
                 <h1> to list?</h1>
             </div>
@@ -224,7 +214,6 @@
                     <div class="modal-content-container">
 
                         <div class="modal-button-container">
-                            <button onclick="closeOptionModal()">Back to Questions</button>
                         </div>
 
                     </div>
@@ -251,7 +240,229 @@
 
         </div>
         <script>
+            const questions2 = [
+                {
+                    question: " new",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " new",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " new",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+            ]
+            const questions = [
+                {
+                    question: " Harry Potter",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " Treasure Island",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " Fablehaven",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " The Great Gatspy",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " Alchemist",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " Lord of the Rings",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
 
+                {
+                    question: " To Kill A Mocking Bird",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " Hunger Games",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+
+                {
+                    question: " The Giver",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+                {
+                    question: " Lord of the Flies",
+                    A: "Yes",
+                    B: "No",
+                    Answer: "A"
+                },
+
+            ]
+
+
+            let shuffledQ = []
+
+            function displayQuestions() {
+                while (shuffledQ.length <= 3) {
+                    const random = questions[Math.floor(Math.random() * questions.length)]
+                    if (!shuffledQ.includes(random)) {
+                        shuffledQ.push(random)
+                    }
+                }
+            }
+
+
+            let questionNumber = 1
+            var myylist = []
+            let indexNumber = 0
+
+            function NextQuestion(index) {
+                displayQuestions()
+                const currentQuestion = shuffledQ[index]
+                document.getElementById("QNum").innerHTML = questionNumber
+                document.getElementById("current-list").innerHTML = myylist
+                document.getElementById("display-question").innerHTML = currentQuestion.question;
+                document.getElementById("option-uno").innerHTML = currentQuestion.A;
+                document.getElementById("option-dos").innerHTML = currentQuestion.B;
+
+            }
+
+
+            function checkForAnswer() {
+                const currentQuestion = shuffledQ[indexNumber]
+                const currentQuestionAnswer = currentQuestion.Answer
+                const options = document.getElementsByName("option");
+                let Answer = null
+
+                options.forEach((option) => {
+                    if (option.value === currentQuestionAnswer) {
+                        Answer = option.labels[0].id
+                    }
+                })
+
+                if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+                    document.getElementById('option-modal').style.display = "flex"
+                }
+
+                options.forEach((option) => {
+                    if (option.checked === true && option.value === currentQuestionAnswer) {
+                        myylist.push(currentQuestion.question)
+                        indexNumber++
+                        setTimeout(() => {
+                            questionNumber++
+                        }, 1000)
+                    }
+
+                    else if (option.checked && option.value !== currentQuestionAnswer) {
+                        const wrongLabelId = option.labels[0].id
+                        wrongAttempt++ //adds 1 to wrong attempts
+                        indexNumber++
+                        //set to delay question number till when next question loads
+                        setTimeout(() => {
+                            questionNumber++
+                        }, 1000)
+                    }
+                })
+            }
+
+
+
+            //called when the next button is called
+            function NextQ() {
+                checkForAnswer() //check if player picked right or wrong option
+                //delays next question displaying for a second just for some effects so questions don't rush in on player
+                setTimeout(() => {
+                    if (indexNumber <= 5) {
+                        NextQuestion(indexNumber)
+                    }
+                    else {
+                        EndGame()//ends game if index number greater than 9 meaning we're already at the 10th question
+                    }
+                    resetBackground()
+                }, 1000);
+            }
+
+            //sets options background back to null after display the right/wrong colors
+            function resetBackground() {
+                const options = document.getElementsByName("option");
+                options.forEach((option) => {
+                    document.getElementById(option.labels[0].id).style.backgroundColor = ""
+                })
+            }
+
+            // unchecking all radio buttons for next question(can be done with map or foreach loop also)
+
+
+            function EndGame() {
+                let remark = null
+                let remarkColor = null
+
+
+                if (score <= 3) {
+                    remark = "Try Again!"
+                }
+                else if (score >= 4 && score < 7) {
+                    remark = "Pretty solid!"
+                    remarkColor = "green"
+                }
+                else if (score >= 7) {
+                    remark = "Wow! You're insane!"
+                    remarkColor = "blue"
+                }
+                const playerGrade = (score / 10) * 100
+
+                //scoreboard using document.getElementById
+                document.getElementById('remarks').innerHTML = remark
+                document.getElementById('remarks').style.color = remarkColor
+                document.getElementById('grade').innerHTML = playerGrade
+                document.getElementById('incorrect-solution').innerHTML = wrongAttempt
+                document.getElementById('correct-solution').innerHTML = score
+                document.getElementById('modal-score').style.display = "flex"
+
+            }
+
+            //reset
+            function ScoreModel() {
+                questionNumber = 1
+                score = 0
+                wrongAttempt = 0
+                indexNumber = 0
+                shuffledQ = []
+                NextQuestion(indexNumber)
+                document.getElementById('modal-score').style.display = "none"
+            }
+
+            //function to close warning modal
+            function closeOptionModal() {
+                document.getElementById('option-modal').style.display = "none"
+            }
         </script>
     </main>
     </body>
