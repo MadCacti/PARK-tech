@@ -186,9 +186,7 @@
 
             <div class="modal-content-container">
 
-                <div class="modal-button-container">
-                    <button onclick="ScoreModel()">GO</button>
-                </div>
+
 
             </div>
         </div>
@@ -196,9 +194,16 @@
         <div class="game-quiz-container">
 
             <div class="game-details-container">
-                <h1>Wishlist: <span id="current-list"></span></h1>
+                <div class="row">
+                    <h1 style="width: 50%">Wishlist: <span id="current-list"></span></h1>
+                    <p style="width: 50%; color: green; font-size: x-large" id="type"></p>
+                </div>
                 <h1> Book#: <span id="QNum"></span> / 5</h1>
-                <button onclick="chosen()">Switch</button>
+                <div>
+                    <button onclick="chosen()">Fantasy</button>
+                    <button>Comedy</button>
+                    <button>Sci-Fi</button>
+                </div>
             </div>
 
             <div class="game-question-container">
@@ -329,7 +334,7 @@
 
             let shuffledQ = []
 
-            function displayQuestions() {
+            function mixQuestions() {
                 while (shuffledQ.length <= 3) {
                     const random = questions[Math.floor(Math.random() * questions.length)]
                     if (!shuffledQ.includes(random)) {
@@ -338,13 +343,19 @@
                 }
             }
 
+            let choice = 1
+            function chosen() {
+                document.getElementById("type").innerHTML = "Fantasy"
+                choice++
+            }
 
             let questionNumber = 1
             var myylist = []
             let indexNumber = 0
 
             function NextQuestion(index) {
-                displayQuestions()
+
+                mixQuestions()
                 const currentQuestion = shuffledQ[index]
                 document.getElementById("QNum").innerHTML = questionNumber
                 document.getElementById("current-list").innerHTML = myylist
@@ -367,7 +378,7 @@
                     }
                 })
 
-                if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+                if (options[0].checked === false && options[1].checked === false) {
                     document.getElementById('option-modal').style.display = "flex"
                 }
 
@@ -382,7 +393,6 @@
 
                     else if (option.checked && option.value !== currentQuestionAnswer) {
                         const wrongLabelId = option.labels[0].id
-                        wrongAttempt++ //adds 1 to wrong attempts
                         indexNumber++
                         //set to delay question number till when next question loads
                         setTimeout(() => {
@@ -423,41 +433,13 @@
             function EndGame() {
                 let remark = null
                 let remarkColor = null
-
-
-                if (score <= 3) {
-                    remark = "Try Again!"
-                }
-                else if (score >= 4 && score < 7) {
-                    remark = "Pretty solid!"
-                    remarkColor = "green"
-                }
-                else if (score >= 7) {
-                    remark = "Wow! You're insane!"
-                    remarkColor = "blue"
-                }
-                const playerGrade = (score / 10) * 100
-
                 //scoreboard using document.getElementById
-                document.getElementById('remarks').innerHTML = remark
-                document.getElementById('remarks').style.color = remarkColor
-                document.getElementById('grade').innerHTML = playerGrade
-                document.getElementById('incorrect-solution').innerHTML = wrongAttempt
+
                 document.getElementById('correct-solution').innerHTML = score
                 document.getElementById('modal-score').style.display = "flex"
 
             }
 
-            //reset
-            function ScoreModel() {
-                questionNumber = 1
-                score = 0
-                wrongAttempt = 0
-                indexNumber = 0
-                shuffledQ = []
-                NextQuestion(indexNumber)
-                document.getElementById('modal-score').style.display = "none"
-            }
 
             //function to close warning modal
             function closeOptionModal() {
