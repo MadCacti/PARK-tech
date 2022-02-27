@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 {% block content %}
-    <body onload="NextQuestion(0)">
+    <body onload="CurrQuestion(0)">
     <main>
         <head>
             <style>{
@@ -170,7 +170,7 @@
             </style>
         </head>
         <title>
-            Wishlist
+            PARK-Tech - Wishlist
         </title>
         <div class="modal-container" id="modal-score">
 
@@ -231,8 +231,11 @@
                 </div>
 
                 <div class="next-button-container">
-                    <button onclick="NextQ()">Next book</button>
+                    <button onclick="NextQ()" id="hey"></button>
                 </div>
+            </div>
+            <div id="neww" style="display: none">
+                <button onClick="window.location.reload();">Create Again</button>
             </div>
         </div>
         <script>
@@ -337,6 +340,7 @@
                     Answer: "A"
                 },
             ]
+            sbooks = ["Dune", "The Time Machine", "Brave New World", "The Fountain Trilogy", "Eyes of the Void"]
             const questions3 = [
                 {
                     question: " Dune",
@@ -389,7 +393,6 @@
             ]
 
 
-            let shuffledQ = []
 
             function mixQuestions(clist) {
                 while (shuffledQ.length <= 4) {
@@ -409,61 +412,67 @@
                 document.getElementById('quiz').style.display = '';
                 button2.disabled = true;
                 button3.disabled = true;
-                NextQuestion(0, questions)
+                CurrQuestion(0, questions)
             }
             function chosenc() {
-                document.getElementById("type").innerHTML = "Comedy"
+                document.getElementById("type").innerHTML = "Non-Fiction"
                 document.getElementById('quiz').style.display = '';
                 button1.disabled = true;
                 button3.disabled = true;
-                NextQuestion(0, questions2)
+                CurrQuestion(0, questions2)
             }
             function chosens() {
                 document.getElementById("type").innerHTML = "Sci-Fi"
                 document.getElementById('quiz').style.display = '';
                 button1.disabled = true;
                 button2.disabled = true;
-                NextQuestion(0, questions3)
+                CurrQuestion(0, questions3)
             }
 
             let questionNumber = 1
             var myylist = []
             let indexNumber = 0
+            let shuffledQ = []
 
-            function NextQuestion(index, mchoice) {
-
-                mixQuestions(mchoice)
+            function CurrQuestion(index, clist) {
+                while (shuffledQ.length <= 4) {
+                    const random = clist[Math.floor(Math.random() * clist.length)]
+                    if (!shuffledQ.includes(random)) {
+                        shuffledQ.push(random)
+                    }
+                }
                 const currentQuestion = shuffledQ[index]
+
+                if (index <  4) {
+                    document.getElementById("hey").innerHTML = "Next Book";
+
+                }
+                else {
+                    document.getElementById("hey").innerHTML = "Submit";
+
+                }
                 document.getElementById("QNum").innerHTML = questionNumber
                 document.getElementById("display-question").innerHTML = currentQuestion.question;
                 document.getElementById("option-uno").innerHTML = currentQuestion.A;
                 document.getElementById("option-dos").innerHTML = currentQuestion.B;
-
             }
-
 
             function checkForAnswer() {
                 const currentQuestion = shuffledQ[indexNumber]
                 const currentQuestionAnswer = currentQuestion.Answer
-                const options = document.getElementsByName("option");
-                let Answer = null
+
+                const options = document.getElementsByName("option"); // Takes option that is chosen
 
                 options.forEach((option) => {
-                    if (option.value === currentQuestionAnswer) {
-                        Answer = option.labels[0].id
-                    }
-                })
-
-                options.forEach((option) => {
-                    if (option.checked === true && option.value === currentQuestionAnswer) {
-                        myylist.push(currentQuestion.question)
-                        indexNumber++
+                    if (option.checked === true && option.value === currentQuestionAnswer) { //chose "yes"
+                        myylist.push(currentQuestion.question) //Adds the current book displayed to list
+                        indexNumber++ //goes to next book in the chosen list
                         if (questionNumber < 5) {
-                            questionNumber++
+                            questionNumber++ //just display book list
                         }
                     }
-                    else if (option.checked && option.value !== currentQuestionAnswer) {
-                        indexNumber++
+                    else if (option.checked && option.value !== currentQuestionAnswer) { //Chose "no"
+                        indexNumber++ //goes to next book in the chosen list
                         if (questionNumber < 5) {
                             questionNumber++
                         }
@@ -480,10 +489,12 @@
                 if (indexNumber === 5) {
                     document.getElementById("output").innerHTML = "Thanks!    Your Wishlist:" + myylist
                     document.getElementById('quiz').style.display = 'none';
+                    document.getElementById('neww').style.display = '';
+
                 }
                 setTimeout(() => {
                     if (indexNumber <= 5) {
-                        NextQuestion(indexNumber)
+                        CurrQuestion(indexNumber)
                     }
                     else {
                     }

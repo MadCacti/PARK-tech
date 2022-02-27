@@ -48,7 +48,7 @@
            cursor: pointer;
        }
        .text {
-           cursor: text;
+           cursor: text;}
     </style>
     <link rel="shortcut icon" href="/static/assets/title.png">
 
@@ -69,11 +69,11 @@
     <li class="nav-item dropdown navbar-text" id="homeBody">
     <li class="nav-item">-->
     <ul style="padding-left: 40px" class="nav navbar-nav mr-auto"></ul>
-        <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Databases</a>
+        <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">CT/Crud</a>
         <ul style="margin-left: 10em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li>
-                <a class="dropdown-item" href={{ url_for('databases') }}> Find by Book </a>
-                <a class="dropdown-item" href={{ url_for('database1') }}> Find by Type </a>
+                <a class="dropdown-item" href={{ url_for('hangman') }}> Hangman </a>
+                <a class="dropdown-item" href={{ url_for('database1') }}> Wishlist </a>
                 <a class="dropdown-item" href={{ url_for('crud.crud')}}>SQL Crud</a>
             </li>
         </ul>
@@ -94,17 +94,7 @@
                     </li>
                 </ul>
             </li>
-            <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Frontend</a>
-            <ul style="margin-left: 20em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                    <a class="dropdown-item" href={{ url_for('frontend.graph') }}>Graph</a>
-                    <a class="dropdown-item" href={{ url_for('frontend.life') }}>Life</a>
-                    <a class="dropdown-item" href={{ url_for('frontend.snake') }}>Snake</a>
-                </li>
-            </ul>
-            </li>
-            <li style="padding-right: 15px" class="nav navbar-nav navbar-right">
-            <li style="padding-right: 20px" class="nav-item">
+            <li style="padding-right: 15px; float: right" class="nav-item">
                     <a style="font-size: 20px" class="nav-link" href={{ url_for('search') }}>Find Books</a>
                 </li>
                 <li style="padding-right: 15px" class="nav-item">
@@ -118,34 +108,18 @@
                 </li>
                 <li class="nav-item">
                     <li style="padding-right: 15px" class="nav-item">
-                        <a style="font-size: 20px" class="nav-link" href={{ url_for('moreinfo') }}>More Info</a>
-                    </li>
-                </li>
-                <li class="nav-item">
-                    <li style="padding-right: 15px" class="nav-item">
                         <a style="font-size: 20px" class="nav-link" href={{ url_for('login') }}>Login</a>
                     </li>
                 </li>
                 <!--<li class="nav-item">
                     <li style="padding-right: 10px" class="nav-item">
-                        <a style="font-size: 20px" class="nav-link" href={{ url_for('register') }}>Register</a>
+                        <a style="font-size: 20px" class="nav-link" href=>Register</a>
                     </li>
                 </li>-->
         </li>
         </ul>
     </ul>
-    <ul class="nav nav-item navbar-text navbar-nav mr-auto">
-        <li style="padding-right: 80px" class="nav navbar-nav navbar-right">
-        <li class="nav-item navbar-text">
-        <li class="nav-item dropdown navbar-text" id="homeBody">
-        <li class="nav-item">
-            <a style="font-size: 20px" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuButton1" type="button">Create Task</a>
-            <ul style="margin-left: 70em" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                    <a class="dropdown-item" href={{ url_for('APct') }}>Armaan & Paul</a>
-                </li>
-            </ul>
-        </li>
+
 </nav>
 <!--<body class="baseNav" style="background-color: red">-->
 <div class="row">
