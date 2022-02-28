@@ -2,6 +2,7 @@
 {% block content %}
     <body onload="CurrQuestion(0)">
     <main>
+
         <head>
             <style>{
                 margin: 0;
@@ -10,13 +11,13 @@
             }
 
             html, body{
-                height: 100%;
+                height: 150%;
             }
 
 
             body{
                 font-family: 'Montserrat', serif;
-
+                background-color: #e78f0c;
             }
 
 
@@ -25,23 +26,25 @@
             }
 
             .game-question-container{
-                width: 80%;
+                width: 100%;
                 height: 8rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border: 2px solid black;
+                border: 5px solid black;
                 border-radius: 25px;
             }
 
             .game-question-container h1{
                 font-size: 1.1rem;
                 text-align: center;
-                padding: 3px;
+                padding: 5px;
+                border: 5px white;
+
             }
 
             .game-options-container{
-                width: 80%;
+                width: 100%;
                 height: 12rem;
                 display: flex;
                 flex-wrap: wrap;
@@ -50,11 +53,12 @@
             }
 
             .game-options-container span{
-                width: 45%;
+                width: 50%;
                 height: 3rem;
-                border: 2px solid black;
+                border: 5px solid black;
                 border-radius: 20px;
                 overflow: hidden;
+                background-color: #25883c;
             }
             span label{
                 width: 100%;
@@ -94,12 +98,13 @@
                 background: none;
                 color: rgb(25, 25, 25);
                 font-weight: 600;
-                border: 2px solid gray;
+                border: 3px solid gray;
                 cursor: pointer;
                 outline: none;
+                background-color: rgb(238, 236, 241);
             }
             .next-button-container button:hover{
-                background-color: rgb(143, 93, 93);
+                background-color: rgb(66, 66, 66);
             }
 
             .modal-container{
@@ -194,14 +199,25 @@
                 <h1> Book#: <span id="QNum"></span> / 5</h1>
                 <p style="text-align:center; font-size: x-large" id="output"></p>
             </div>
+            <div class="center">
+                <img id="image" src="alchemist.jpeg" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Alchemist">
+                <img id="image" src="lord.jpeg" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Lord of the Flies">
+                <img id="image" src="gatsby.jpeg" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Great Gatsby">
+                <img id="image" src="Hunger.jpeg " style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Hunger Games">
+                <img id="image" src="harrypotter.png" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Harry Potter">
+                <img id="image" src="Mockingbird.jpeg " style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Mockingbird">
+            </div>
+
             <div id = "quiz" style = "display:none">
                 <div class="game-question-container">
-                    <h1>Add</h1>
+                    <h1 style="width: 50%; font-size: x-large">Add</h1>
                     <h1 id="display-question"></h1>
-                    <h1> to list?</h1>
+                    <h1 style="width: 50%; font-size: x-large"> to list?</h1>
                 </div>
 
+
                 <div class="game-options-container">
+
 
                     <div class="modal-container" id="option-modal">
 
@@ -225,12 +241,12 @@
                         <label for="option-two" class="option" id="option-dos"></label>
                     </span>
 
-
                 </div>
 
                 <div class="next-button-container">
                     <button onclick="NextQ()" id="hey"></button>
                 </div>
+
             </div>
             <div id="neww" style="display: none">
                 <button onClick="window.location.reload();">Create Again</button>
