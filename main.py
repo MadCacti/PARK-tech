@@ -81,6 +81,10 @@ def randombook():
 def TEST():
     return render_template("TEST.html")
 
+@app.route('/wishlist/')
+def wishlist():
+    return render_template("wishlist.html")
+
 
 @app.route('/error/')
 def error():

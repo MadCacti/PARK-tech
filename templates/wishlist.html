@@ -1,10 +1,500 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layouts/base.html" %}
+{% block content %}
+    <body onload="NextQuestion(0)">
+    <>
+    <head>
+        <style>{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-</body>
-</html>
+        html, body{
+            height: 135%;
+        }
+
+
+        body{
+            font-family: 'Montserrat', serif;
+            background-color: #964b00;
+
+        }
+
+        /* main{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            background: url('file:///Users/armaanshamsaasef/Downloads/bookCT.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        } */
+
+        .game-details-container h1{
+            font-size: 1.5rem;
+        }
+
+        .game-question-container{
+            width: 100%;
+            height: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #f10dcb;
+            border-radius: 25px;
+        }
+
+        .game-question-container h1{
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 3px;
+            justify-content: center;
+        }
+
+        .game-options-container{
+            width: 100%;
+            height: 12rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .game-options-container span{
+            width: 45%;
+            height: 3rem;
+            border: 2px solid #3d043d;
+            border-radius: 50px;
+            overflow: hidden;
+            justify-content: center;
+
+        }
+        span label{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            font-weight: 600;
+            color: #1736b4;
+            background-color: rgb(19, 189, 59);
+
+        }
+
+        span label:hover{
+            -ms-transform: scale(1.12);
+            -webkit-transform: scale(1.12);
+            transform: scale(1.12);
+            color: red;
+            justify-content: center;
+        }
+
+        input[type="radio"] {
+            position: relative;
+            display: none;
+            justify-content: center;
+        }
+
+        .next-button-container{
+            width: 50%;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+
+        }
+        .next-button-container button{
+            width: 8rem;
+            height: 2rem;
+            border-radius: 10px;
+            background: black;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            border: 5px #195c9f;
+            cursor: pointer;
+            outline: none;
+        }
+        .next-button-container button:hover{
+            background-color: rgb(189, 157, 19);
+        }
+
+        .modal-container{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            -webkit-animation: fadeIn 1.2s ease-in-out;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .modal-content-container{
+            height: 20rem;
+            width: 25rem;
+            background-color: rgb(189, 157, 19);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 25px;
+        }
+
+        .modal-content-container h1{
+            font-size: 1.3rem;
+            height: 3rem;
+            color: #218aa4;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .grade-details{
+            width: 15rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .grade-details p{
+            color: #44145d;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .modal-button-container{
+            height: 2rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-button-container button{
+            width: 10rem;
+            height: 2rem;
+            background: none;
+            outline: none;
+            border: 1px solid rgb(0, 0, 11);
+            color: #b517fb;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            justify-content: center;
+        }
+        .modal-button-container button:hover{
+            background-color: rgb(255, 255, 255);
+        }
+
+        </style>
+    </head>
+    <title>
+        Wishlist
+    </title>
+
+    <!--<style>
+        p {outline-color:blueviolet;}
+
+    </style>-->
+
+    <img id="image" src="alchemist.jpeg" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Alchemist">
+    <img id="image" src="lord.jpeg" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Lord of the Flies">
+    <img id="image" src="gatsby.jpeg" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Great Gatsby">
+    <img id="image" src="Hunger.jpeg " style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Hunger Games">
+    <img id="image" src="harrypotter.png" style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Harry Potter">
+    <img id="image" src="Mockingbird.jpeg " style="height: 300px; margin: 2%; border: 5px solid #ffffff;" alt="Mockingbird">
+
+    <div class="modal-container" id="modal-score">
+
+        <div class="modal-content-container">
+
+            <div class="modal-button-container">
+                <button onclick="ScoreModel()">GO</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="game-quiz-container">
+
+        <div class="game-details-container">
+            <h1>Wishlist: <span id="current-list"></span></h1>
+            <h1> Book#: <span id="QNum"></span> / 5</h1>
+            <button onclick="chosen()">Switch</button>
+        </div>
+
+        <div class="game-question-container">
+            <h1>Add</h1>
+            <h1 id="display-question"></h1>
+            <h1> to list?</h1>
+        </div>
+
+        <div class="game-options-container">
+
+            <div class="modal-container" id="option-modal">
+
+                <div class="modal-content-container">
+
+                    <div class="modal-button-container">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="A" />
+                    <label for="option-one" class="option" id="option-uno"></label>
+                </span>
+
+
+            <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="B" />
+                    <label for="option-two" class="option" id="option-dos"></label>
+                </span>
+
+
+        </div>
+
+        <div class="next-button-container">
+            <button onclick="NextQ()">Next Book</button>
+        </div>
+
+    </div>
+    <script>
+        const questions2 = [
+            {
+                question: " new",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " new",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " new",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+        ]
+        const questions = [
+            {
+                question: " Harry Potter",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " Treasure Island",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " Fablehaven",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " The Great Gatsby",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " Alchemist",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " Lord of the Rings",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+
+            {
+                question: " To Kill A Mocking Bird",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " Hunger Games",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+
+            {
+                question: " The Giver",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+            {
+                question: " Lord of the Flies",
+                A: "Yes",
+                B: "No",
+                Answer: "A"
+            },
+
+        ]
+
+
+        let shuffledQ = []
+
+        function displayQuestions() {
+            while (shuffledQ.length <= 3) {
+                const random = questions[Math.floor(Math.random() * questions.length)]
+                if (!shuffledQ.includes(random)) {
+                    shuffledQ.push(random)
+                }
+            }
+        }
+
+
+        let questionNumber = 1
+        var myylist = []
+        let indexNumber = 0
+
+        function NextQuestion(index) {
+            displayQuestions()
+            const currentQuestion = shuffledQ[index]
+            document.getElementById("QNum").innerHTML = questionNumber
+            document.getElementById("current-list").innerHTML = myylist
+            document.getElementById("display-question").innerHTML = currentQuestion.question;
+            document.getElementById("option-uno").innerHTML = currentQuestion.A;
+            document.getElementById("option-dos").innerHTML = currentQuestion.B;
+
+        }
+
+
+        function checkForAnswer() {
+            const currentQuestion = shuffledQ[indexNumber]
+            const currentQuestionAnswer = currentQuestion.Answer
+            const options = document.getElementsByName("option");
+            let Answer = null
+
+            options.forEach((option) => {
+                if (option.value === currentQuestionAnswer) {
+                    Answer = option.labels[0].id
+                }
+            })
+
+            if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+                document.getElementById('option-modal').style.display = "flex"
+            }
+
+            options.forEach((option) => {
+                if (option.checked === true && option.value === currentQuestionAnswer) {
+                    myylist.push(currentQuestion.question)
+                    indexNumber++
+                    setTimeout(() => {
+                        questionNumber++
+                    }, 1000)
+                }
+
+                else if (option.checked && option.value !== currentQuestionAnswer) {
+                    const wrongLabelId = option.labels[0].id
+                    wrongAttempt++ //adds 1 to wrong attempts
+                    indexNumber++
+                    //set to delay question number till when next question loads
+                    setTimeout(() => {
+                        questionNumber++
+                    }, 1000)
+                }
+            })
+        }
+
+        //called when the next button is called
+        function NextQ() {
+            checkForAnswer() //check if player picked right or wrong option
+            //delays next question displaying for a second just for some effects so questions don't rush in on player
+            setTimeout(() => {
+                if (indexNumber <= 5) {
+                    NextQuestion(indexNumber)
+                }
+                else {
+                    EndGame()//ends game if index number greater than 9 meaning we're already at the 10th question
+                }
+                resetBackground()
+            }, 1000);
+        }
+
+        //sets options background back to null after display the right/wrong colors
+        function resetBackground() {
+            const options = document.getElementsByName("option");
+            options.forEach((option) => {
+                document.getElementById(option.labels[0].id).style.backgroundColor = ""
+            })
+        }
+
+        // unchecking all radio buttons for next question(can be done with map or foreach loop also)
+
+
+        function EndGame() {
+            let remark = null
+            let remarkColor = null
+
+
+            if (score <= 3) {
+                remark = "Try Again!"
+            }
+            else if (score >= 4 && score < 7) {
+                remark = "Pretty solid!"
+                remarkColor = "green"
+            }
+            else if (score >= 7) {
+                remark = "Wow! You're insane!"
+                remarkColor = "blue"
+            }
+            const playerGrade = (score / 10) * 100
+
+            //scoreboard using document.getElementById
+            document.getElementById('remarks').innerHTML = remark
+            document.getElementById('remarks').style.color = remarkColor
+            document.getElementById('grade').innerHTML = playerGrade
+            document.getElementById('incorrect-solution').innerHTML = wrongAttempt
+            document.getElementById('correct-solution').innerHTML = score
+            document.getElementById('modal-score').style.display = "flex"
+
+        }
+
+        //reset
+        function ScoreModel() {
+            questionNumber = 1
+            score = 0
+            wrongAttempt = 0
+            indexNumber = 0
+            shuffledQ = []
+            NextQuestion(indexNumber)
+            document.getElementById('modal-score').style.display = "none"
+        }
+
+        //function to close warning modal
+        function closeOptionModal() {
+            document.getElementById('option-modal').style.display = "none"
+        }
+    </script>
+    </main>
+    </body>
+{% endblock %}
